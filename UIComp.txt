@@ -34,7 +34,8 @@ Components:
     Admin:
         Add Moderator:
         Total Fund
-        Pending Goods
+            Distributed
+        Donation History
         Info
         Seeking Help
         
