@@ -29,7 +29,7 @@ Ask For Help
                 Name
                 Contact Info
                 In Need of
-                    Financial Support                    
+                    Financial Support
 
 Help:
     Ready To Donate Blood
@@ -47,6 +47,11 @@ Help:
             Issues
     Location:
         We can pick up from your location
+    Donate Money Randomly
+        Purpose: Any
+
+    Get Points
+
 
 
 Weekly/Monthly Best Donors
@@ -64,9 +69,26 @@ Moderator:
     Pending Pickups
     Review Info
 
+Our Medias
+
 
 Admin:
     Add Moderator:
     Total Fund
     Pending Goods
-    
+    Info
+    View Donors
+
+
+Navigation:
+    Home Donations (Need Help?) Gallery (About US) Donors
+Components:
+    Home 
+        Gallery
+        Carousel -> Best Donors
+        Money Distribution Graph, 3 Fund Raising
+    Need Help:
+        What type of help you need?
+            Dropdown Menu for categories
+            Submit finally
+         
