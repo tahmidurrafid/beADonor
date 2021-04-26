@@ -1,0 +1,11 @@
+Navigation:
+    Home Donations (Need Help?) Gallery (About US) Donors
+Components:
+    Home 
+        Gallery
+        Carousel -> Best Donors
+        Money Distribution Graph, 3 Fund Raising
+    Need Help:
+        What type of help you need?
+            Dropdown Menu for categories
+            Submit finally
