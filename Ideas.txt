@@ -22,3 +22,39 @@ Ask For Help
             Describe Patient/Guardian(s) financial Condition
             Required Amouont of Money
             Message to Reviewer(Optional):
+
+Help:
+    Ready To Donate Blood
+        Group
+        Location
+    
+    Clothes/Books/Other accessories:
+        Photo
+        Books/Student Materials
+            Description:
+        Gadgets:
+            Type
+            Model
+            Used 
+            Issues
+    Location:
+        We can pick up from your location
+
+
+Weekly/Monthly Best Donors
+    Individual vs Organization
+
+Create Account:
+    Individual/Organization
+    Hide my donations
+    Profile visibility : Hide
+
+Moderator:
+    Review Issues
+        Approve/Ask Question
+    Review donations
+    Pending Pickups
+
+Admin:
+    Add Moderator:
+    
