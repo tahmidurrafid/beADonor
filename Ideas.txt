@@ -23,6 +23,14 @@ Ask For Help
             Required Amouont of Money
             Message to Reviewer(Optional):
 
+        Provide info for who needs Help
+            Individual/Group
+            Individual
+                Name
+                Contact Info
+                In Need of
+                    Financial Support                    
+
 Help:
     Ready To Donate Blood
         Group
@@ -52,9 +60,13 @@ Create Account:
 Moderator:
     Review Issues
         Approve/Ask Question
-    Review donations
+    Approve donations
     Pending Pickups
+    Review Info
+
 
 Admin:
     Add Moderator:
+    Total Fund
+    Pending Goods
     
