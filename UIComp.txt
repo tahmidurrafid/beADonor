@@ -9,3 +9,32 @@ Components:
         What type of help you need?
             Dropdown Menu for categories
             Submit finally
+
+
+    Profile :
+        Informarion:
+        Help queries:
+            Under Review/
+        Donations:
+            Pending/Under Review/
+        Notifications:
+        Provide Info:
+    Donations:
+        Donate For: categories
+    
+    Top Donors:
+        Weekly Individual/ Monthly Individual
+    
+    Moderator:
+        Review Issues
+            Approve/Ask Question
+        Approve donations
+        Pending Pickups
+        Review Info
+    Admin:
+        Add Moderator:
+        Total Fund
+        Pending Goods
+        Info
+        Seeking Help
+        
