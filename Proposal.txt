@@ -1,5 +1,55 @@
 BeADonor
 Introduction:
+There are always some people who perefer to provide help and support to those in need. The needy people
+can be helped in many ways. They can not effort proper food, education and proper medical treatment.
+Often the people who are willing to help can not reach to the needy people directly. Not only the poor
+people but also the rich ones sometimes become depending on others help. Finding effective ways 
+to retain blood/plasma donors is crucial especially in this current covid situation. Now a days, it is a 
+very common in social media to see people asking for financial help for people in ciritical medical consition.
+But sometimes it becomes difficult to verify properly as there are a lot of frauds around us. So often the 
+actual needy people don't get proper support.
+ 
+
+Scope:
+
+
+Users and their role:
+    Anonymous User:
+        Anonymous user will be able to register to our system and start to donate or ask for help.
+        They can view gallary, weekly/monthly top donors list, public help seeking posts etc.
+    Registered User:
+        Registered users will be able to use our system with full privilege. They will 
+            donate money/goods
+            Ask for help
+            provide us information about others who need help
+    Moderator:
+        They will review help seeking posts for approval
+        They will verify users' donation
+        They will ensure how goods from users will arrive to us
+    Admin:
+        Admin will have the privelege of adding/removing a moderator
+        Admin will monitor the activities of the moderators
+
+Use cases of the system:
+
+
+Technology:
+    Spring Boot
+    Spring Data 
+    Spring Security
+    JPA/ Hibernate
+    JSP
+    JSTL
+    Sitemesh
+    Bootstrap/sass
+    Jquery/Ajax
+
+Build Tools:
+    Gradle
+
+Database:
+    Mysql
+
 This system will provide donation service. There will exist collaborations between both type of people
 who will donate and who needs donations. A charitable and non profit organization will run it. On our 
 webapp, moderators will work as a bridge between the donors and the people who seek help.
@@ -20,22 +70,4 @@ Our system will provide the opportunity for all sorts of donations. For example,
         to ask for help through our webapp themselves)
     Admin will monitor the activitied of the moderators.
     User can be an individual or an organization.
-
-User and their role:
-    Anonymous User:
-        Anonymous user will be able to register to our system and start to donate or ask for help.
-        They can view gallary, weekly/monthly top donors list, public help seeking posts etc.
-    Registered User:
-        Registered users will be able to use our system with full privilege. They will 
-            donate money/goods
-            Ask for help
-            provide us information about others who need help
-    Moderator:
-        They will review help seeking posts for approval
-        They will verify users' donation
-        They will ensure how goods from users will arrive to us
-    Admin:
-        Admin will have the privelege of adding/removing a moderator
-        Admin will monitor the activities of the moderators
-          
 
