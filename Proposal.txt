@@ -1,7 +1,7 @@
 BeADonor
 Introduction:
 This system will provide donation service. There will exist collaborations between both type of people
-who will donate and who needs donations. This will run as charitable and non profit organization. On our 
+who will donate and who needs donations. A charitable and non profit organization will run it. On our 
 webapp, moderators will work as a bridge between the donors and the people who seek help.
 Our system will provide the opportunity for all sorts of donations. For example, there will be
     blood donation, 
@@ -11,13 +11,31 @@ Our system will provide the opportunity for all sorts of donations. For example,
     Users will submit details of their unused study materials(books/bags/calculator ...), gadgets(phone/laptop)
         and other tools. Our moderator will review and pick up goods from their location or ask them
         send through courier(depending upon the distance)
-    Users can pay their Zakat, fitrah to us and we will distribute maintaining proper religious law.
+    Users can pay their Zakat, fitrah to us and we will distribute maintaining proper religious ruling.
     To draw the attention of the users, we have decided to add some points to user account after every donation
         which can be redeemed to get T-shirts or some other cool staffs.
     There will be dashboard where a list of weekly/monthly best donors will be visisble (every user will
         have the choice to make his donation visible/hidden)
     Users can provide us information about the people who need financial help(As most of them might not be able 
-        to ask help through our webapp themselves)
+        to ask for help through our webapp themselves)
     Admin will monitor the activitied of the moderators.
     User can be an individual or an organization.
-    
+
+User and their role:
+    Anonymous User:
+        Anonymous user will be able to register to our system and start to donate or ask for help.
+        They can view gallary, weekly/monthly top donors list, public help seeking posts etc.
+    Registered User:
+        Registered users will be able to use our system with full privilege. They will 
+            donate money/goods
+            Ask for help
+            provide us information about others who need help
+    Moderator:
+        They will review help seeking posts for approval
+        They will verify users' donation
+        They will ensure how goods from users will arrive to us
+    Admin:
+        Admin will have the privelege of adding/removing a moderator
+        Admin will monitor the activities of the moderators
+          
+
