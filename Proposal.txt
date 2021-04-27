@@ -1,0 +1,14 @@
+BeADonor
+Introduction:
+This system will provide donation service. There will exist collaborations between both type of people
+who will donate and who needs donations. This will run as charitable and non profit organization. On our 
+webapp, moderators will work as bridge between the donors and the people who seek help.
+Our system will provide the opportunity for all sorts of donations. For example, there will be
+    blood donation, 
+    old and unused clothes(specially in winter Season) will be collected and distrubuted among the needy people
+    People can ask for financial support for critical medical issue. Our moderator will verify their documents
+        and then the post will be visible to donors. 
+    Users will submit details of their unused study material(books/bags/calculator ...), gadgets(phone/laptop)
+        and other tools. Our moderator will review and pick up goods from their location or ask them
+        send through courier(depending upon the distance)
+    
