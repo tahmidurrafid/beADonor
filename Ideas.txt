@@ -79,3 +79,8 @@ Admin:
     Info
     View Donors
          
+
+Ask for help : 006 advice
+Moderator : 003-role Model
+Somebody helps : 009-trust
+Make the world better : 042-team

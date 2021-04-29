@@ -8,3 +8,6 @@ admin : http://themes.pixelstrap.com/multikart/back-end/order.html
 CCL Images:
     https://www.pexels.com/photo/girl-s-white-and-gray-crew-neck-top-holding-gray-wire-fence-1098769/
     https://www.pexels.com/photo/girl-smiling-1739842/
+
+icons:
+    https://www.flaticon.com/packs/mentoring-and-training-2

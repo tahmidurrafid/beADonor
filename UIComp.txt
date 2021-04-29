@@ -38,4 +38,3 @@ Components:
         Donation History
         Info
         Seeking Help
-        
