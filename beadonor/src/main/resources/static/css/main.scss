@@ -1,3 +1,55 @@
+$orange4 : #FC5A34;
+$regular : 400;
+$semibold : 600;
+
+body{
+    padding: none;
+    margin : none;
+    font-family: 'Poppins', sans-serif;
+}
+
 h1{
     background-color: red;
+    height: 100px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    height : 100px;
+    align-items: center;
+    box-sizing: border-box;
+    padding : 0 80px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .1);        
+
+    .logo{
+        img{
+
+        }
+    }
+    .menu{
+        .items{
+            display: flex;
+            a{
+                padding : 0 25px;
+                font-weight: $semibold;
+                color: $orange4;
+
+                &.selected span{
+                    background-color: $orange4;
+                    color: white;
+                    padding : 5px 20px;
+                    border-radius: 100px;
+                }
+            }
+        }
+    }
+    .user-name{
+
+    }
 }
