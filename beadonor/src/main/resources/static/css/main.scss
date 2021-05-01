@@ -1,21 +1,14 @@
-$orange4 : #FC5A34;
-$regular : 400;
-$semibold : 600;
+@import "_variables";
+@import "_home";
 
 body{
     padding: none;
     margin : none;
-    font-family: 'Poppins', sans-serif;
-}
-
-h1{
-    background-color: red;
-    height: 100px;
+    font-family: $font1;
 }
 
 a{
     text-decoration: none;
-    color: black;
 }
 
 nav{
@@ -26,30 +19,164 @@ nav{
     box-sizing: border-box;
     padding : 0 80px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, .1);        
-
+    &>*{
+        height: 100%;
+    }
     .logo{
+        display: flex;
+        align-items: center;
         img{
-
+            height: 50%;
         }
     }
     .menu{
+        display: flex;
+        align-items: center;
         .items{
             display: flex;
             a{
+                font-size: $font16;
                 padding : 0 25px;
                 font-weight: $semibold;
                 color: $orange4;
 
                 &.selected span{
                     background-color: $orange4;
-                    color: white;
+                    color: $white;
                     padding : 5px 20px;
                     border-radius: 100px;
                 }
             }
         }
     }
-    .user-name{
+    .user-nav{
+        .log-reg{
+            a{
+                color: $orange4;
+                font-size: $font14;
+                font-weight: $semibold;
+                padding: 0 10px;
+            }
+        }
+        .settings{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            img{
+                max-height: 70%;
+            }
+        }
+    }
+}
 
+.footer{
+    margin-top : 20px;
+    background-color: $black;
+    color : $white;
+    .wrapper{
+        padding : 60px 60px;            
+        display: flex;
+        box-sizing: border-box;
+        .item{
+            width: 33.33%;
+            text-align: left;
+
+            .caption{
+                font-size: $font18;
+                font-weight: $bold;
+                padding-bottom: 30px;
+                span{
+                    position: relative;
+                    &::after{
+                        position: absolute;
+                        right : 0;
+                        bottom : 0;
+                        content: ' ';
+                        display: block;
+                        height: 2px;
+                        width: 20px;
+                        background-color: $white;
+                    }
+                }
+
+            }
+            &.left{
+                .infos{
+                    .box{
+                        display: flex;
+                        padding : 8px 0; 
+                        span{
+                            display: block;
+                        }
+                        .label{
+                            width : 130px;
+                            font-weight: $bold;
+                        }
+                        .val{
+                            font-size: $font14;
+
+                        }
+                    }
+                }   
+            }         
+            &.mid{
+                text-align: center;
+                .link{
+                    padding : 5px 0;
+                    font-size: $font14;
+                    a{
+                        color: $white;
+                    }
+                }
+            }    
+            &.right{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .logo{
+                    display: flex;
+                    justify-content: center;
+                    img{
+                        width: 200px;
+                    }
+                }
+                .social{
+                    padding-top: 60px;                        
+                    display: flex;
+                    .text{
+                        display: flex;
+                        align-items: center;
+                        &::after{
+                            display: block;
+                            height : 2px;
+                            width : 20px;
+                            margin : 0 10px;
+                            content : ' ';
+                            background-color: $white;
+                        }
+                    }
+                    .links{
+                        a{
+                            color: $white;
+                            padding : 0 8px;
+                            i{
+                                font-size: $font22;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .copy{
+        font-size: $font14;
+        font-weight: medium;
+        background-color: $grey1;
+        height :60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 }
