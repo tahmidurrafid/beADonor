@@ -15,12 +15,15 @@ $font1 : 'Poppins', sans-serif;
 $font2 : 'Oswald', sans-serif;
 
 /* Font-size */
+
 $font66 : 66px;
+$font40 : 40px;
 $font22 : 22px;
+$font20 : 20px;
 $font18 : 18px;
 $font16 : 16px;
 $font14 : 14px;
-$font40 : 40px;
+$font12 : 12px;
 
 h1{
     font-family: $font2;
@@ -56,6 +59,11 @@ p{
         border: solid 2px $white;        
         background-color: transparent;        
     }
+    &.white:hover{
+        border: solid 2px $orange4;        
+        background-color: transparent;
+        color: $orange4;
+    }
 }
 
 .button.flat{
@@ -87,4 +95,15 @@ p{
             left : -35px;
         }
     }
+}
+
+@mixin container{
+    width : 100%;
+    box-sizing: border-box;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.section{
+    padding : 70px 0;
 }

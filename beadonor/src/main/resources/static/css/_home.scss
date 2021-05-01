@@ -39,5 +39,111 @@
         }
     }
 
-    
+    .howto{
+        .work-seq{
+            @include container;
+            .items{
+                display: flex;
+                justify-content: space-between;
+                padding-top : 70px;
+                .item{
+                    width: 22%;
+                    .box{
+                        border: solid 1px $orange4;
+                        border-radius: 30px;
+                        background-color: $white;
+                        .icon{
+                            border: solid 1px $orange4;
+                            border-radius: 20px;
+                            background-color: $white;
+                            margin : -20px auto 0;
+                            width : 70%;
+                            padding : 30px;
+                            box-sizing: border-box;
+
+                            img{
+                                width: 100%;
+                            }
+                        }
+                        .text{
+                            font-family: $font2;
+                            font-size: $font18;
+                            font-weight: $medium;
+                            color: $lightBlack;
+                            text-align: center;
+                            padding : 20px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .inspire{
+        background-image: url("../images/gun.svg");
+        @include container;
+        .parts{
+            display: flex;
+            &>*{
+                width : 50%;
+            }
+            .left{
+                h1, p{
+                    padding-bottom : 30px;
+                }
+            }
+            .right{
+                display: flex;
+                justify-content:center;
+                img{
+                    display: block;
+                    width: 70%;
+                    box-shadow: 0px 3px 40px rgba(0,0,0,.16);
+                }
+            }
+        }
+    }
+
+    .gallery{
+        @include container;
+        .items{
+            display: flex;
+            justify-content: space-between;
+            padding : 60px 0 0 0;            
+            .item{
+                width : 24%;
+                position : relative;
+                img{
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                .overlay{
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    top : 0;
+                    left : 0;
+                    background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%);
+                    color : $white;
+                    .content{
+                        position: absolute;
+                        width: 100%;
+                        padding : 15px;
+                        bottom : 0;
+                        left : 0;
+                        .text{
+                            font-family: $font2;
+                            font-size: $font20;
+                            font-weight: $medium;
+                            padding : 5px;
+                        }
+                        .location{
+                            font-size: $font12;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

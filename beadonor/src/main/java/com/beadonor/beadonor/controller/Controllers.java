@@ -9,4 +9,9 @@ public class Controllers {
     public String HomePage(){
         return "home";
     }
+
+    @GetMapping("moderator/dashboard")
+    public String moderator(){
+        return "moderator/dashboard";
+    }
 }
