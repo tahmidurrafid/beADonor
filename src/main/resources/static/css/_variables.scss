@@ -4,6 +4,8 @@ $white : #ffffff;
 $black : black;
 $lightBlack : #272727;
 $grey1 : #1C1C1C;
+$grey2 : #848484;
+$lightBackground : #F8F8F8;
 
 /* Font Weight */
 $regular : 400;
@@ -106,4 +108,58 @@ p{
 
 .section{
     padding : 70px 0;
+}
+
+.tab{
+    a{
+        color: $grey2;
+    }
+}
+
+#dashboard{
+    background-color: $lightBackground;
+    .layout{
+        display: flex;
+        .left-bar{
+            background-color: $white;
+            width: 23%;
+            .heading{
+                display: flex;
+                justify-content: center;
+                padding : 25px 0;
+                background-color: rgba(235,235,235, .2);
+                font-size: $font22;
+                color: $orange4;
+                font-weight: $medium;
+                img{
+                    display: block;
+                }   
+                span{
+                    padding : 0 10px;
+                }
+            }
+            .links{
+                padding-top: 20px;
+                a{
+                    display: flex;
+                    box-sizing: border-box;
+                    padding : 20px 0 20px 14%;
+
+                    .icon{
+                        width : 40px;
+                        text-align: center;
+                        // padding-left: 20px;
+                        box-sizing: unset;
+                    }
+                    span{
+                        padding : 0 5px;
+                        display: block;
+                    }
+                    color: $grey1;
+                    font-weight: $medium;
+                    font-size: $font14;
+                }
+            }
+        }
+    }
 }

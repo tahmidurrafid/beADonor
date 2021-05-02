@@ -93,6 +93,71 @@ p {
   padding: 70px 0;
 }
 
+#dashboard {
+  background-color: #F8F8F8;
+}
+
+#dashboard .layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#dashboard .layout .left-bar {
+  background-color: #ffffff;
+  width: 23%;
+}
+
+#dashboard .layout .left-bar .heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 25px 0;
+  background-color: rgba(235, 235, 235, 0.2);
+  font-size: 22px;
+  color: #FC5A34;
+  font-weight: 500;
+}
+
+#dashboard .layout .left-bar .heading img {
+  display: block;
+}
+
+#dashboard .layout .left-bar .heading span {
+  padding: 0 10px;
+}
+
+#dashboard .layout .left-bar .links {
+  padding-top: 20px;
+}
+
+#dashboard .layout .left-bar .links a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px 0 20px 14%;
+  color: #1C1C1C;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#dashboard .layout .left-bar .links a .icon {
+  width: 40px;
+  text-align: center;
+  -webkit-box-sizing: unset;
+          box-sizing: unset;
+}
+
+#dashboard .layout .left-bar .links a span {
+  padding: 0 5px;
+  display: block;
+}
+
 #home .cover {
   position: relative;
   min-height: 400px;

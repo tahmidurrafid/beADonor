@@ -79,7 +79,7 @@
                 <div class = "item right">
                     <div class = "wrap">
                         <div class = "logo">
-                            <img src = "images/logo-light.svg" />
+                            <img src = "/images/logo-light.svg" />
                         </div>
                         <div class = "social">
                             <div class = "text">Follow us on</div>
@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class = "copy">
-                Copyright 2021-2021 by Group 2 | All Rights Reserved.            
+                Copyright 2021-2021 by Group 2 | All Rights Reserved.     
             </div>
         </section>
     </body>
