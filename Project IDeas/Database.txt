@@ -1,0 +1,58 @@
+User
+    id
+    email
+    password
+    name
+    birth_date
+    blood_group
+    donate_blood
+    Address
+    -- District
+    -- Area
+    user_type    
+
+helpRequest
+    id
+    user_id
+    category
+    date
+    description
+    contact_id
+    guardian_contact_id
+    status
+
+payment:
+    id
+    user_id
+    category
+    spec_request_id
+    date
+    status
+    method
+    amount
+    transaction_id
+    reference
+
+messages:
+    id
+    type_id
+    spec_id
+    user_id
+    date
+    content
+
+attachments:
+    id
+    type_id
+    spec_id
+    name
+    location
+
+contactDetails
+    id
+    name
+    phone
+    District
+    Area
+    Address
+    email    
