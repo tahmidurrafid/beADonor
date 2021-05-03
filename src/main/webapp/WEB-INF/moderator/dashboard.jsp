@@ -46,7 +46,7 @@
                 </div>
 
                 <div class = "main-right">
-                    <%@include file="request.jsp" %>
+                    <%@include file="gifts.jsp" %>
                 </div>
             </div>
         </div>
