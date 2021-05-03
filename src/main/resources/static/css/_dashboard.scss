@@ -49,7 +49,7 @@
             padding : 20px;
             width: 77%;
             .content{
-                box-shadow: $shadowLight;                
+                box-shadow: $shadowLight;
                 padding : 20px 40px;
                 background-color: $white;
                 display: block;
@@ -62,9 +62,101 @@
                             padding : 20px;
                             margin: 15px 0;
 
+                            &.expanded{
+                                align-items: unset;
+                                .para.small{
+                                    font-size: $font16;
+                                    color: $grey2;
+                                }
+                                .details > *{
+                                    margin-bottom : 10px ;
+                                }
+                                h4, h5{
+                                    margin: 10px 0;
+                                }
+                                h4{
+                                    font-size: $font22;
+                                }
+                                .exp{
+                                    display: none !important;
+                                }
+
+                            }
+                            &.collapsed{
+                                .colap{
+                                    display: none !important;
+                                }
+                                .para.small{
+                                    height: 40px;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    margin : 10px 0;
+                                }
+                            }
+
                             .bar{
                                 display: flex;
                                 justify-content: space-between;
+                            }
+                            .elem{
+                                &.half{
+                                    width: 50%;
+                                }
+                                &.flex{
+                                    display: flex;
+                                    align-items: center;
+                                    &>*{
+                                        margin : 0 30px 0 0;
+                                    }
+
+                                }
+                                select{
+                                    padding : 8px 30px;
+                                    border: solid 1px $lightBorder;
+                                    border-radius: 100px;
+                                    font-size: $font12;
+                                    font-weight: $medium;
+                                    color: $grey2;
+                                }
+                                table{
+                                    font-size: $font12;
+                                    font-weight: $medium;
+                                    font-style: italic;
+                                    color: $grey2;
+                                    tr{
+                                        border-bottom: solid 5px transparent;
+                                        td:nth-child(1){
+                                            width: 30%;
+                                        }
+                                        td{
+                                            vertical-align: top;
+                                        }
+                                    }
+                                }
+                                .attach{
+                                    display: flex;
+                                    align-items: center;
+                                    .download{
+                                        width: 50px;
+                                        height: 50px;
+                                        border-radius: 100px;
+                                        background-color: white;
+                                        border: solid 1px $lightBorder;
+                                        box-sizing: border-box;
+                                        padding: 10px;
+                                        margin: 5px 0;
+                                        img{
+                                            display: block;
+                                            width: 100%;
+                                        }
+                                    }
+                                    .name{
+                                        color: $grey2;
+                                        padding-left: 30px;
+                                        font-size: $font14;
+                                        font-weight: $medium;
+                                    }
+                                }
                             }
                         }
                     }
@@ -77,7 +169,7 @@
 
 #dashboard{
     .item{
-        &.request{
+        &.dpView{
             display: flex;
             align-items: center;
             .dp{
