@@ -46,7 +46,7 @@
                 </div>
 
                 <div class = "main-right">
-                    <%@include file="paymentForm.jsp" %>
+                    <%@include file="giftForm.jsp" %>
                 </div>
             </div>
         </div>
