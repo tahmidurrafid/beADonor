@@ -33,6 +33,32 @@ payment:
     transaction_id
     reference
 
+items:
+    id
+    user_id
+    category
+    date
+    description
+    contact_id
+    status
+
+info:
+    id
+    user_id
+    category
+    date
+    description
+    status
+
+gifts:
+    id
+    user_id
+    type
+    sub_type    
+    date
+    contact_id
+    status
+
 messages:
     id
     type_id
@@ -55,4 +81,12 @@ contactDetails
     District
     Area
     Address
-    email    
+    email
+
+Gallery
+    id
+    location
+    Title
+    description
+    date
+    

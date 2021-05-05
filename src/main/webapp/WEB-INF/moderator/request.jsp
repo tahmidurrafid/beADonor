@@ -7,7 +7,7 @@
     </div>
     <div class = "topic-content">
         <div class = "items">
-            <div class = "item dpView expanded">
+            <div class = "item dpView collapsed">
                 <div class = "dp">
                     <img src = "/images/dp.png" />
                 </div>

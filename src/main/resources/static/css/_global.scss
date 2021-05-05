@@ -169,3 +169,35 @@ div.para.small{
         }
     }
 }
+
+form{
+    .elem.half{
+        width: 45% !important;
+    }
+
+    submit{
+        font-size: $font16 !important;
+        padding : 10px 20px !important;
+        margin : 20px 0 !important;
+        display: block;
+    }
+
+    input.title{
+        font-size: $font18;
+        font-weight: $medium;
+    }
+    input, select, textarea{
+        border: solid 1px $lightBorder;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        width: 100%;
+        transition: border .5s;
+        border-radius: 10px;
+        &:focus{
+            border-color: $orange4;
+            outline: none;
+        }
+        margin: 10px 0;
+        font-size: $font14;
+    }
+}

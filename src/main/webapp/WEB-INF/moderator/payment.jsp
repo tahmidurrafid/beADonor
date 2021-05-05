@@ -7,15 +7,11 @@
     </div>
     <div class = "topic-content">
         <div class = "items">
-            <div class = "item dpView collapsed">
+            <div class = "item dpView expanded">
                 <div class = "dp">
                     <img src = "/images/dp.png" />
                 </div>
                 <div class = "details">
-                    <!-- <h4>
-                        Md. Tahmidur Rafid
-                    </h4> -->
-
                     <div class = "bar">
                         <div class = "elem half">
                             <h6>Critical Medical Issue</h6>
