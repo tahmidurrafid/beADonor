@@ -1,4 +1,3 @@
-<%@ page import="javafx.util.Pair" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 
 <html>
@@ -46,7 +45,10 @@
                 </div>
 
                 <div class = "main-right">
-                    <%@include file="giftForm.jsp" %>
+                    <c:forEach var = "i" begin = "0" end = "2">
+                        <c:set var = "man" scope = "request" value = "${list.get(i)}"/>
+                        <%@include file="payment.jsp" %>
+                    </c:forEach>
                 </div>
             </div>
         </div>

@@ -11,6 +11,6 @@ public class SitemeshFilter extends ConfigurableSiteMeshFilter {
 
     @Override
     protected void applyCustomConfiguration(SiteMeshFilterBuilder builder) {
-        builder.addDecoratorPath("/*", "/WEB-INF/index.jsp");
+        builder.addDecoratorPath("/*", "/WEB-INF/index.jsp").addExcludedPath("/auth/**");
     }
 }

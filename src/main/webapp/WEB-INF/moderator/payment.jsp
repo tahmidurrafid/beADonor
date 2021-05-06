@@ -14,7 +14,7 @@
                 <div class = "details">
                     <div class = "bar">
                         <div class = "elem half">
-                            <h6>Critical Medical Issue</h6>
+                            <h6>Critical Medical Issue - ${man.name} </h6>
                             <table>
                                 <tr>
                                     <td>Amount : </td><td>500 Taka</td>

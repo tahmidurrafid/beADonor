@@ -3,6 +3,12 @@ h1{
     font-size: $font66;
 }
 
+
+h3{
+    font-family: $font2;
+
+}
+
 h4{
     font-size: $font16;
     color: $grey2;
@@ -171,8 +177,23 @@ div.para.small{
 }
 
 form{
+
+    .line{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .elem.left{
+        text-align: left !important;
+    }
     .elem.half{
         width: 45% !important;
+    }
+
+    .elem.half:nth-child(2){
+        display: flex;
+        justify-content: flex-end;
     }
 
     submit{
@@ -180,6 +201,11 @@ form{
         padding : 10px 20px !important;
         margin : 20px 0 !important;
         display: block;
+    }
+
+    input[type='checkbox']{
+        width: auto;
+        margin-right: 10px;
     }
 
     input.title{

@@ -6,6 +6,10 @@ h1 {
   font-size: 66px;
 }
 
+h3 {
+  font-family: "Oswald", sans-serif;
+}
+
 h4 {
   font-size: 16px;
   color: #848484;
@@ -199,8 +203,31 @@ div.para.small {
   border-bottom: solid 2px #FC5A34;
 }
 
+form .line {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+form .elem.left {
+  text-align: left !important;
+}
+
 form .elem.half {
   width: 45% !important;
+}
+
+form .elem.half:nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 form submit {
@@ -208,6 +235,11 @@ form submit {
   padding: 10px 20px !important;
   margin: 20px 0 !important;
   display: block;
+}
+
+form input[type='checkbox'] {
+  width: auto;
+  margin-right: 10px;
 }
 
 form input.title {
@@ -662,6 +694,77 @@ form input:focus, form select:focus, form textarea:focus {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+.auth {
+  background-image: url("/../images/gun.svg");
+  background-repeat: no-repeat;
+  background-position: 0px 50px;
+  background-size: 100% auto;
+  background-attachment: fixed;
+  background-color: #F8F8F8;
+  padding: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth .floating {
+  width: 40%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.auth .floating .logo {
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 0;
+}
+
+.auth .floating .logo img {
+  display: block;
+  width: 150px;
+}
+
+.auth .floating h3 {
+  margin: 20px;
+}
+
+.auth .floating .card-item {
+  margin: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.03);
+          box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.03);
 }
 
 body {
