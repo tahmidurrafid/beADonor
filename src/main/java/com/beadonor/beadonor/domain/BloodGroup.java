@@ -7,4 +7,13 @@ import javax.persistence.Id;
 public class BloodGroup {
     @Id
     private String bloodgroup;
+
+    public String getBloodgroup() {
+        return bloodgroup;
+    }
+
+    public void setBloodgroup(String bloodgroup) {
+        this.bloodgroup = bloodgroup;
+    }
+    
 }

@@ -1,0 +1,4 @@
+api/v1/
+    location
+        districts -> array of the names of the districts
+    

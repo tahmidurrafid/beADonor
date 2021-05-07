@@ -1,5 +1,6 @@
 package com.beadonor.beadonor.domain;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Embedded;
@@ -15,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "User")
-public class User {
+public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id; 
@@ -24,11 +25,14 @@ public class User {
     private String password;
     private String name;
     private Date birthDate;
+
     @ManyToOne
-    @JoinColumn(name = "blood_group")
+    @JoinColumn(name = "bloodGroup")
     private BloodGroup bloodGroup;
+
     @Embedded
     private ContactPerson contact;
+
     @Enumerated(EnumType.STRING)
     private UserRole userType;
     public Integer getId() {

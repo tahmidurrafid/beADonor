@@ -4,6 +4,9 @@
     <head>
         <title>Be A donor - Login</title>
         <%@ include file="../meta.jsp" %>
+
+        <script type = "text/javascript" src = "/js/auth.js"></script>
+
     </head>
 
     <body>
@@ -17,43 +20,45 @@
                     <h3>Create Account</h3>                    
                     <form>
                         <div class = "elem">
-                            <input type = "text" placeholder="Enter Email"/>
+                            <input type = "text" name = "email" placeholder="Enter Email"/>
                         </div>
                         <div class = "elem">
-                            <input type = "password" placeholder="Your password"/>
+                            <input type = "password" name = "password" placeholder="Your password"/>
                         </div>
                         <div class = "elem">
-                            <input type = "text" placeholder="Full Name"/>
+                            <input type = "text" name = "name" placeholder="Full Name"/>
                         </div>
                         <div class = "line">
                             <div class = "elem half">
-                                <input type = "text" placeholder="Choose Borthdate" />
+                                <input type = "text" name = "birthDate" placeholder="Choose Borthdate" />
                             </div>
                             <div class = "elem half">
-                                <select>
-                                    <option disabled selected>Blood Group</option>
-                                    <option>O+</option>
-                                    <option>B+</option>
-                                    <option>C+</option>
+                                <select name = "bloodGroup" data-bind="bloodGroup">
+                                    <option disabled selected class = "default">Blood Group</option>
                                 </select>
                             </div>
                         </div>
-                        <div class = "line">
-                            <div class = "elem half">
-                                <select>
-                                    <option selected disabled>Choose District</option>
-                                    <option>Dhaka</option>
-                                </select>
+                        <div class = "group contact" data-group = "contact" data-action = "auto_contact">
+                            <div class = "line">
+                                <div class = "elem half">
+                                    <select name = "district" data-bind = "district">
+                                        <option selected disabled class = "default">Choose District</option>
+
+                                    </select>
+                                </div>
+                                <div class = "elem half">
+                                    <select name = "area_id" data-bind = "area">
+                                        <option selected disabled class = "default">Choose Area</option>
+                                        <option>Khilgaon</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class = "elem half">
-                                <select>
-                                    <option selected disabled>Choose Area</option>
-                                    <option>Khilgaon</option>
-                                </select>
+                            <div class = "elem" name = "address">
+                                <input type = "text" placeholder="address" />
                             </div>
-                        </div>
-                        <div class = "elem">
-                            <input type = "text" placeholder="address" />
+                            <div class = "elem">
+                                <input type = "text" name = "address" placeholder="Phone No." />
+                            </div>                            
                         </div>
                         <div class = "elem left">
                             <input type = "checkbox" name = "donate" value = "I am ready to donate blood" />
