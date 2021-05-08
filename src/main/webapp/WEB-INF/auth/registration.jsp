@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
     <head>
         <title>Be A donor - Login</title>
         <%@ include file="../meta.jsp" %>
-
-        <script type = "text/javascript" src = "/js/auth.js"></script>
+        <meta charset="utf-8" />
 
     </head>
 
@@ -33,42 +33,48 @@
                                 <input type = "text" name = "birthDate" placeholder="Choose Borthdate" />
                             </div>
                             <div class = "elem half">
-                                <select name = "bloodGroup" data-bind="bloodGroup">
-                                    <option disabled selected class = "default">Blood Group</option>
-                                </select>
+                                <div class = "group" data-group = "bloodGroup">
+                                    <select name = "bloodgroup" data-bind="bloodGroup">
+                                        <option disabled selected class = "default">Blood Group</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div class = "group contact" data-group = "contact" data-action = "auto_contact">
-                            <div class = "line">
-                                <div class = "elem half">
-                                    <select name = "district" data-bind = "district">
-                                        <option selected disabled class = "default">Choose District</option>
-
-                                    </select>
+                        <div class = "group" data-group = "contact">
+                            <div class = "group" data-group = "area" data-action = "auto_contact">
+                                <div class = "line">
+                                    <div class = "elem half">
+                                        <select name = "district" class = "ignore" data-bind = "district">
+                                            <option selected disabled class = "default">Choose District</option>
+    
+                                        </select>
+                                    </div>
+                                    <div class = "elem half">
+                                        <select name = "id" data-bind = "area">
+                                            <option selected disabled class = "default">Choose Area</option>
+                                            <option>Khilgaon</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class = "elem half">
-                                    <select name = "area_id" data-bind = "area">
-                                        <option selected disabled class = "default">Choose Area</option>
-                                        <option>Khilgaon</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class = "elem" name = "address">
-                                <input type = "text" placeholder="address" />
                             </div>
                             <div class = "elem">
-                                <input type = "text" name = "address" placeholder="Phone No." />
+                                <input type = "text" name = "address" placeholder="address" />
+                            </div>
+                            <div class = "elem">
+                                <input type = "text" name = "phoneNo" placeholder="Phone No." />
                             </div>                            
                         </div>
+
                         <div class = "elem left">
-                            <input type = "checkbox" name = "donate" value = "I am ready to donate blood" />
+                            <input type = "checkbox" name = "donate" />
                             <label for = "donate">I am ready to doante blood</label>
                         </div>
                         <div class = "line">
                             <div class = "elem half">
                             </div>
                             <div class = "elem half">
-                                <submit class = "button solid small white">Submit</submit>
+                                <submit class = "button solid small white" onclick="submitForm(this)">
+                                    Submit</submit>
                             </div>
                         </div>
                     </form>

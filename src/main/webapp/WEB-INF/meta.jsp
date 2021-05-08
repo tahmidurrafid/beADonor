@@ -7,3 +7,5 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">        
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="/js/jquery-3.6.0.min.js"></script>   
+<script type = "text/javascript" src = "/js/utils.js"></script>
+<script type = "text/javascript" src = "/js/auth.js"></script>

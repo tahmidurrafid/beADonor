@@ -3,6 +3,14 @@
 <html>
     <head>
         <title>Moderator Dasboard</title>
+        <script type = "text/javascript" src = "/js/dashboard.js"></script>
+        <script type = "text/javascript">
+        var link = "${link}";
+        $(document).ready(function(){
+            var dashboardFactory = new DashboardFactory();
+            dashboardFactory.create(link);
+        })
+        </script>     
     </head>
 
     <body>
@@ -45,10 +53,7 @@
                 </div>
 
                 <div class = "main-right">
-                    <c:forEach var = "i" begin = "0" end = "2">
-                        <c:set var = "man" scope = "request" value = "${list.get(i)}"/>
-                        <%@include file="payment.jsp" %>
-                    </c:forEach>
+                    <jsp:include page = "${link}.jsp" />
                 </div>
             </div>
         </div>

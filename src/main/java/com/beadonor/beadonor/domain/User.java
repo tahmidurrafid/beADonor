@@ -25,7 +25,6 @@ public class User implements Serializable{
     private String password;
     private String name;
     private Date birthDate;
-
     @ManyToOne
     @JoinColumn(name = "bloodGroup")
     private BloodGroup bloodGroup;
@@ -35,6 +34,7 @@ public class User implements Serializable{
 
     @Enumerated(EnumType.STRING)
     private UserRole userType;
+
     public Integer getId() {
         return id;
     }

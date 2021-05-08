@@ -9,4 +9,5 @@ public class BeadonorApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BeadonorApplication.class, args);
 	}
+	
 }

@@ -3,8 +3,9 @@
 
 <html>
     <head>
-        <title><sitemesh:write property='title'/></title>
+        <title> <sitemesh:write property='title'/> </title>
         <%@ include file="meta.jsp" %>   
+        <sitemesh:write property='head'/>
     </head>
 
     <body>

@@ -9,7 +9,7 @@ User
     Address
     -- District
     -- Area
-    user_type    
+    user_type
 
 helpRequest
     id
@@ -17,9 +17,10 @@ helpRequest
     category
     date
     description
-    contact_id
-    guardian_contact_id
+    contact
+    guardian_contact
     status
+    amount
 
 payment:
     id
