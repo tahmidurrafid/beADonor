@@ -22,4 +22,9 @@ public class ModeratorController {
         model.put("link", "payments");
         return DASHBOARD;
     }
+    @GetMapping("/items")
+    public String items(ModelMap model){
+        model.put("link", "items");
+        return DASHBOARD;
+    }
 }
