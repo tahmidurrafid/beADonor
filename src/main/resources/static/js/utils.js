@@ -7,3 +7,8 @@ function ajaxGet(url, success){
         success: success
     });
 }
+
+function replaceNulls(json){
+    data = JSON.parse(JSON.stringify(json).replace(/\:null/gi, "\:\"\""));
+    return data;
+}

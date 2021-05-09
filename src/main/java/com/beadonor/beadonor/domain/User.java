@@ -35,6 +35,14 @@ public class User implements Serializable{
     @Enumerated(EnumType.STRING)
     private UserRole userType;
 
+    private String dpLocation;
+
+    public String getDpLocation() {
+        return dpLocation;
+    }
+    public void setDpLocation(String dpLocation) {
+        this.dpLocation = dpLocation;
+    }
     public Integer getId() {
         return id;
     }
