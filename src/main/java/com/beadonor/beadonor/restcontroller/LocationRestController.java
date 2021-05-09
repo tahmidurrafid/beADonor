@@ -2,7 +2,7 @@ package com.beadonor.beadonor.restcontroller;
 
 import java.util.List;
 
-import com.beadonor.beadonor.domain.District;
+import com.beadonor.beadonor.domain.Area;
 import com.beadonor.beadonor.service.DistrictService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +22,7 @@ public class LocationRestController {
         return districtService.findALLNames();
     }
     @GetMapping("/districts/{district}/areas")
-    public District allAreasByDistricts(@PathVariable String district){
-        System.out.println(district);
-        return districtService.findByName(district) ;
+    public List<Area> allAreasByDistricts(@PathVariable String district){
+        return districtService.findAreaByDistrictName(district);
     }
 }

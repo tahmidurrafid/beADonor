@@ -29,7 +29,8 @@ public class HelpRequest extends Issue{
     @AttributeOverrides({
         @AttributeOverride( name = "area", column = @Column(name = "g_area")),
         @AttributeOverride( name = "address", column = @Column(name = "g_address")),
-        @AttributeOverride( name = "phoneNo", column = @Column(name = "g_phoneNo"))
+        @AttributeOverride( name = "phoneNo", column = @Column(name = "g_phoneNo")),
+        @AttributeOverride( name = "contactName", column = @Column(name = "g_conatctName"))
     })
     @AssociationOverrides({
         @AssociationOverride( name = "area", joinColumns = @JoinColumn( name = "g_area_id" ))

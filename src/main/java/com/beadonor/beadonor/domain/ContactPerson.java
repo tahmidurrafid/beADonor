@@ -14,6 +14,14 @@ public class ContactPerson implements Serializable{
 
     private String address;
     private String phoneNo;
+    private String contactName;
+    
+    public String getContactName() {
+        return contactName;
+    }
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
+    }
     public Area getArea() {
         return area;
     }

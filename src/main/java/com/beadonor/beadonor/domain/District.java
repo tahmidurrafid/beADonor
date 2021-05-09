@@ -8,7 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class District implements Serializable{
@@ -16,7 +16,7 @@ public class District implements Serializable{
     private String name;
 
     @OneToMany(mappedBy = "district", fetch = FetchType.LAZY)
-    @JsonManagedReference
+    @JsonBackReference    
     private Set<Area> areas = new HashSet<>() ;
 
     public String getName() {

@@ -25,9 +25,9 @@ function bindContactForms(parent){
             area.find(":not(.default)").remove();
 
             $.ajax({url: apiRoot + "location/districts/" + this.value + "/areas", success: function(result){
-                for(let i = 0; i < result.areas.length; i++){
+                for(let i = 0; i < result.length; i++){
                     area.append(/*html*/`
-                        <option value = "${result.areas[i].id}"> ${result.areas[i].name} </option>
+                        <option value = "${result[i].id}"> ${result[i].name} </option>
                     `
                     )
                 }

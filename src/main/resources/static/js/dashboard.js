@@ -140,7 +140,7 @@ function requestComp(state){
                     <table>
                         <tr>
                             <td>Name :</td>
-                            <td> </td>
+                            <td>${state.contact.contactName}</td>
                         </tr>
                         <tr>
                             <td>Phone : </td>
@@ -149,7 +149,7 @@ function requestComp(state){
                         <tr>
                             <td>Address : </td>
                             <td>${state.contact.address}<br />
-                            ${state.contact.area.name}</td>
+                            ${state.contact.area.name}, ${state.contact.area.district.name}</td>
                         </tr>
                     </table>
                 </div>
@@ -158,12 +158,17 @@ function requestComp(state){
                     <table>
                         <tr>
                             <td>Name : </td>
-                            <td>Md. Tahmidur Rafid</td>
+                            <td>${state.guardianContact.contactName}</td>
                         </tr>
                         <tr>
                             <td>Phone :</td>
                             <td>${state.guardianContact.phoneNo}</td>
                         </tr>
+                        <tr>
+                            <td>Address : </td>
+                            <td>${state.guardianContact.address}<br />
+                            ${state.guardianContact.area.name}, ${state.guardianContact.area.district.name}</td>
+                        </tr>                        
                     </table>
                 </div>
             </div>

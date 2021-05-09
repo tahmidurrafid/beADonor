@@ -8,8 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Area implements Serializable{
@@ -19,7 +18,7 @@ public class Area implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "district_id", nullable = false) 
-    @JsonBackReference   
+    @JsonManagedReference
     private District district;
 
     private String name;
