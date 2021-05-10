@@ -7,26 +7,27 @@ import com.beadonor.beadonor.service.HelpRequestService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1/helpRequests")
 public class HelpRequestRestController {
     @Autowired
     HelpRequestService helpRequestService;
 
-    @GetMapping("helpRequests/")
+    @GetMapping("")
     public List<HelpRequest> getAll(){
         return helpRequestService.findAll();
     }
 
-    @PostMapping("helpRequest/")
-    public void saveRequest(@RequestBody HelpRequest helpRequest){
-        HelpRequest hp = new HelpRequest();
-        hp.setAmount(100);
-        helpRequestService.save(hp);
+    @RequestMapping(value = "", method = RequestMethod.POST, consumes = {"multipart/form-data"})
+    public void saveRequest(@RequestPart("request") HelpRequest request, 
+        @RequestParam(name =  "files", required = false) MultipartFile[] files){
+        helpRequestService.save(request, files);
     }
 }

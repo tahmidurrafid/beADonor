@@ -8,4 +8,4 @@
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="/js/jquery-3.6.0.min.js"></script>   
 <script type = "text/javascript" src = "/js/utils.js"></script>
-<script type = "text/javascript" src = "/js/auth.js"></script>
+<script type = "text/javascript" src = "/js/script.js"></script>

@@ -26,13 +26,4 @@ public class Controllers {
         return "auth/registration";
     }
 
-    // @GetMapping("moderator/dashboard")
-    // public String moderator(ModelMap model){
-    //     List<A> myList = new ArrayList<>();
-    //     myList.add(new A("Rhythm", 23));
-    //     myList.add(new A("Porag", 22));
-    //     myList.add(new A("Tayeef", 22));
-    //     model.put("list", myList);
-    //     return "moderator/dashboard";
-    // }
 }

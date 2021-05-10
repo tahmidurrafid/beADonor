@@ -73,7 +73,7 @@
                             <div class = "elem half">
                             </div>
                             <div class = "elem half">
-                                <submit class = "button solid small white" onclick="submitForm(this)">
+                                <submit class = "button solid small white" onclick="submitForm(this, 'users/')">
                                     Submit</submit>
                             </div>
                         </div>

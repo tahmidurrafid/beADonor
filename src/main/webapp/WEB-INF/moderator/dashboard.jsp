@@ -21,31 +21,31 @@
                         <img src = "/images/baricons/fi-rr-home.svg" /> <span>Dashboard</span>
                     </div>
                     <div class = "links">
-                        <a href = "#">
+                        <a href = "requests">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-cursor-finger.svg"/></span>
                             <span>Help Request</span>
                         </a>
-                        <a href = "#">
+                        <a href = "payments">
                             <span class = "icon"><img src = "/images/baricons/009-trust.svg"/></span>
                             <span>Confirm Payment</span>
                         </a>
-                        <a href = "#">
+                        <a href = "items">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-shopping-cart-check.svg"/></span>
                             <span>Confirm Items</span>
                         </a>
-                        <a href = "#">
+                        <a href = "info">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-diploma.svg"/></span>
                             <span>Review Info</span>
                         </a>
-                        <a href = "#">
+                        <a href = "statistics">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-stats.svg"/></span>
                             <span>Statistics</span>
                         </a>
-                        <a href = "#">
+                        <a href = "gifts">
                             <span class = "icon"><img src = "/images/baricons/048-success.svg"/></span>
                             <span>Send Gifts</span>
                         </a>
-                        <a href = "#">
+                        <a href = "profile">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-user.svg"/></span>
                             <span>Profile Settings</span>
                         </a>

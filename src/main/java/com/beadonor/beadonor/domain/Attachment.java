@@ -22,7 +22,15 @@ public class Attachment implements Serializable{
     @JsonBackReference
     private Issue issue;
     private String location;
+    private String name;
+    
 
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
     public Integer getId() {
         return id;
     }

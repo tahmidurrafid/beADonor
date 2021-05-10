@@ -2,6 +2,7 @@ package com.beadonor.beadonor.domain;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -30,12 +31,12 @@ public class Issue implements Serializable{
 
     @OneToMany(mappedBy = "issue")
     @JsonManagedReference
-    private Set<Attachment> attachments;
+    private List<Attachment> attachments;
 
-    public Set<Attachment> getAttachments() {
+    public List<Attachment> getAttachments() {
         return attachments;
     }
-    public void setAttachments(Set<Attachment> attachments) {
+    public void setAttachments(List<Attachment> attachments) {
         this.attachments = attachments;
     }
     public User getUser() {
