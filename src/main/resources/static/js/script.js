@@ -9,6 +9,7 @@ $(document).ready(function(){
         $(this).closest(".item.dpView").toggleClass("expanded");
     })
 
+
     $("body").on("change", ".attachments [type='file']" , function(){
         var attachment = $(this).closest(".attachments");
         if($(this)[0].files.length == 0){

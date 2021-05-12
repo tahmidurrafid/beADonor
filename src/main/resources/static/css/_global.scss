@@ -178,6 +178,33 @@ div.para.small{
     }
 }
 
+.pagination{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-end;
+    .pager{
+        display: flex;
+        .pageNo{
+            border: solid 1px $lightBorder;
+            
+            &.selected, &:hover{
+                background-color: $orange4;
+                border-color: $orange4;
+                color: $white;
+            }
+            transition: background-color .3s, color .3s;
+            cursor: pointer;
+            border-radius: 5px;
+            color: $orange4;
+            font-size: $font18;
+            min-width: 35px;
+            line-height: 35px;
+            text-align: center;
+        }
+    }
+}
+
 form{
 
     .line{

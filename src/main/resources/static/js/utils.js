@@ -7,6 +7,15 @@ function ajaxGet(url, success){
     });
 }
 
+function serializeBody(data){
+    var body = "";
+    for(var key in data){
+        if(body.length) body += "&";
+        body += key + "=" + data[key];
+    }
+    return body;
+}
+
 function ajaxPost(url, data, success){
     $.ajax({
         url: apiRoot + url, 

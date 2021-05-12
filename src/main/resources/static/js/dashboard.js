@@ -1,51 +1,32 @@
+var pageSize = 5;
+
 class DashboardFactory{
-    create = function(dashboard){
+    create = function(dashboard, state){
+        console.log(state)
         if(dashboard == "requests"){
-            createRequests();
+            createRequests(state);
         }else if(dashboard == "payments"){
-            createPayments();
+            createPayments(state);
         }else if(dashboard == "items"){
-            createItems();
+            createItems(state);
         }else if(dashboard == "info"){
-            createInfo();
+            createInfo(state);
         }else if(dashboard == "gifts"){
-            createGifts();
+            createGifts(state);
         }
-    }
-}
 
-function formHandle(button){
+        $("#dashboard").find(".content .tab>a").each(function(index){
+            if($(this).attr("href").toUpperCase().includes( state.state.toUpperCase() ) ){
+                $(this).addClass("selected");
+            }
+        })
 
-    // form.append("files", myFile.files[0]);
-
-    $.ajax({
-        type: "POST",
-        enctype: 'multipart/form-data',
-        url: "/api/v1/helpRequests",
-        data: form,
-        processData: false,
-        contentType: false,
-        cache: false,
-        // beforeSend: setRequestHeader,
-        success: function (data) {
-            console.log("Succeded");
-        },
-        error: function () {
-            console.log("failed");        
-        }
-    });
-
-    return;
-    var selector = $(button).closest("form");
-    var file = selector.find("input[type='file']");
-    var myFile = document.getElementById("myFile");
-    var formData = new FormData(selector[0]);
-    formData.append("hi", "12");
-    formData.append("file", myFile.files[0])
-    // console.log(myFile.files[0]);
-    console.log(...formData);
-    for(var pair of formData.entries()){
-        console.log(pair[0], pair[1]);
+        $("#dashboard .left-bar .links>a").each(function(index){
+            if($(this).attr("href").toUpperCase().includes( dashboard.toUpperCase() ) ){
+                $(this).addClass("selected");
+            }
+        });
+        
     }
 }
 
@@ -57,11 +38,20 @@ function createPayments(){
     })
 }
 
-function createRequests(){
-    ajaxGet("helpRequests/", (res)=>{
-        for(var i = 0; i < res.length; i++){
-            $(".topic-content .items").append( requestComp( replaceNulls(res[i]) ) );
+function createRequests(state){
+    var data = {
+        status : state.state.toUpperCase(),
+        pageNo : state.page,
+        pageSize : pageSize
+    }
+    console.log("helpRequests?" + serializeBody(data));
+    ajaxGet("helpRequests?" + serializeBody(data) , (res)=>{
+        for(var i = 0; i < res.content.length; i++){
+            $(".topic-content .items").append( requestComp( replaceNulls(res.content[i]) ) );
         }
+        console.log(parseInt(res.totalPages, 10))
+        $(".topic-content").append(paginationComp({count : parseInt(res.totalPages, 10), 
+                current : parseInt(state.page, 10) }));
     })
 }
 
@@ -86,7 +76,37 @@ function createGifts(){
         for(var i = 0; i < res.length; i++){
             $(".topic-content .items").append( giftComp( replaceNulls(res[i]) ) );
         }
-    })     
+    })
+}
+
+function paginationComp(state){
+    return /*html*/ `
+    <div class = "pagination">
+        <div class = "pager left">
+            <a href = "${state.current == 1? 1 : state.current-1}" class = "pageNo">
+                <i class="fa fa-angle-double-left"></i>
+            </a>
+            ${
+                ((count, current) => {
+                    var html = "";
+                    for(var i = 1; i <= 6 && i <= count; i++){
+                        var pageNo = i;
+                        if(count > 6) {
+                            pageNo = i <= 3? i : (i == 4 ? '...' : (count- (6-i)) )
+                        }
+                        html += /*html*/`<a href = "${pageNo}" class = "pageNo ${pageNo == current ? `selected` : ''}">
+                                    ${pageNo}</a> \n`;
+                    }
+                    return html;
+                })(state.count, state.current)
+            }
+
+            <a href = "${state.current == state.count? state.count : state.current+1}" class = "pageNo right">
+                <i class="fa fa-angle-double-right"></i>
+            </a>
+        </div>
+    </div>
+`
 }
 
 function giftComp(state){
@@ -405,21 +425,21 @@ function requestComp(state){
     return /*html*/`
     <div class = "item dpView collapsed">
         <div class = "dp">
-            <img src = "${state.user.dpLocation}" />
+            <img src = "${state.user? state.user.dpLocation : ''}" />
         </div>
         <div class = "details">
             <h4>
-                ${state.title} ${state.type}
+                ${state.title}
             </h4>
             <div class = "bar">
-                <h6>${state.helpCategory.name}</h6>
+                <h6>${state.helpCategory? state.helpCategory.name : ''}</h6>
                 <h6>${state.date}</h6>
             </div>
             <div class = "para small">
                 ${state.description}
             </div>
             <div class = "bar">
-                <h5 class = "dash">By ${state.user.name}</h5>
+                <h5 class = "dash">By ${state.user ? state.user.name: ''}</h5>
                 <a href = "#" class = "button solid small white exp" data-action = "toggleDpView">
                     View Details
                 </a>
@@ -430,16 +450,21 @@ function requestComp(state){
                     <table>
                         <tr>
                             <td>Name :</td>
-                            <td>${state.contact.contactName}</td>
+                            <td>${state.contact ? state.contact.contactName : ''}</td>
                         </tr>
                         <tr>
                             <td>Phone : </td>
-                            <td>${state.contact.phoneNo}</td>
+                            <td>${state.contact ? state.contact.phoneNo : ''}</td>
                         </tr>
                         <tr>
                             <td>Address : </td>
-                            <td>${state.contact.address}<br />
-                            ${state.contact.area.name}, ${state.contact.area.district.name}</td>
+                            <td>${state.contact ? state.contact.address : ''}<br />
+                            ${state.contact && state.contact.area ? 
+                            `
+                            ${state.contact.area.name}, ${state.contact.area.district.name}
+                            ` : ''
+                            }
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -448,17 +473,23 @@ function requestComp(state){
                     <table>
                         <tr>
                             <td>Name : </td>
-                            <td>${state.guardianContact.contactName}</td>
+                            <td>${state.guardianContact ? state.guardianContact.contactName : ''}</td>
                         </tr>
                         <tr>
                             <td>Phone :</td>
-                            <td>${state.guardianContact.phoneNo}</td>
+                            <td>${state.guardianContact ? state.guardianContact.phoneNo : ''}</td>
                         </tr>
                         <tr>
                             <td>Address : </td>
-                            <td>${state.guardianContact.address}<br />
-                            ${state.guardianContact.area.name}, ${state.guardianContact.area.district.name}</td>
-                        </tr>                        
+                            <td>${state.guardianContact ? state.guardianContact.address : ''}<br />
+                            ${
+                                state.guardianContact && state.guardianContact.area ?  
+                                `
+                                ${state.guardianContact.area.name}, ${state.guardianContact.area.district.name}
+                                ` : ''
+                            }
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </div>

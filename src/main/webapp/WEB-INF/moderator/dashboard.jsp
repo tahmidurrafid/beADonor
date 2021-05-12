@@ -6,9 +6,14 @@
         <script type = "text/javascript" src = "/js/dashboard.js"></script>
         <script type = "text/javascript">
         var link = "${link}";
+        var data = {
+            state : "${state}",
+            page : "${page}"
+        };
         $(document).ready(function(){
+            console.log(link, data);
             var dashboardFactory = new DashboardFactory();
-            dashboardFactory.create(link);
+            dashboardFactory.create(link, data);
         })
         </script>     
     </head>
@@ -21,19 +26,19 @@
                         <img src = "/images/baricons/fi-rr-home.svg" /> <span>Dashboard</span>
                     </div>
                     <div class = "links">
-                        <a href = "requests">
+                        <a href = "/moderator/requests">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-cursor-finger.svg"/></span>
                             <span>Help Request</span>
                         </a>
-                        <a href = "payments">
+                        <a href = "/moderator/payments">
                             <span class = "icon"><img src = "/images/baricons/009-trust.svg"/></span>
                             <span>Confirm Payment</span>
                         </a>
-                        <a href = "items">
+                        <a href = "/moderator/items">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-shopping-cart-check.svg"/></span>
                             <span>Confirm Items</span>
                         </a>
-                        <a href = "info">
+                        <a href = "/moderator/info">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-diploma.svg"/></span>
                             <span>Review Info</span>
                         </a>
@@ -41,7 +46,7 @@
                             <span class = "icon"><img src = "/images/baricons/fi-rr-stats.svg"/></span>
                             <span>Statistics</span>
                         </a>
-                        <a href = "gifts">
+                        <a href = "/moderator/gifts">
                             <span class = "icon"><img src = "/images/baricons/048-success.svg"/></span>
                             <span>Send Gifts</span>
                         </a>

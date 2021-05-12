@@ -3,9 +3,11 @@ package com.beadonor.beadonor.domain;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
-import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,14 +27,33 @@ public class Issue implements Serializable{
     private Integer id;
     private String type;
     private Date date;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "issue")
+    @OneToMany(mappedBy = "issue", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Attachment> attachments;
 
+    @Enumerated(EnumType.STRING)
+    private IssueStatus status = IssueStatus.PENDING;
+
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "marked_user_id")
+    private User markedByUser;
+
+    public User getMarkedByUser() {
+        return markedByUser;
+    }
+    public void setMarkedByUser(User markedByUser) {
+        this.markedByUser = markedByUser;
+    }
+    public IssueStatus getStatus() {
+        return status;
+    }
+    public void setStatus(IssueStatus status) {
+        this.status = status;
+    }
     public List<Attachment> getAttachments() {
         return attachments;
     }

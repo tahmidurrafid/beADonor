@@ -21,7 +21,7 @@ public class HelpRequest extends Issue{
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    private double amount;
+    private Double amount;
 
     @Embedded
     private ContactPerson contact;
@@ -55,10 +55,10 @@ public class HelpRequest extends Issue{
     public void setDescription(String description) {
         this.description = description;
     }
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
     public ContactPerson getContact() {

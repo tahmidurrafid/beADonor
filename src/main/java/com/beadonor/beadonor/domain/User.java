@@ -33,7 +33,7 @@ public class User implements Serializable{
     private ContactPerson contact;
 
     @Enumerated(EnumType.STRING)
-    private UserRole userType;
+    private UserRole userType = UserRole.USER;
 
     private String dpLocation;
 
@@ -90,6 +90,60 @@ public class User implements Serializable{
     }
     public void setUserType(UserRole userType) {
         this.userType = userType;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        User other = (User) obj;
+        if (birthDate == null) {
+            if (other.birthDate != null)
+                return false;
+        } else if (!birthDate.equals(other.birthDate))
+            return false;
+        if (bloodGroup == null) {
+            if (other.bloodGroup != null)
+                return false;
+        } else if (!bloodGroup.equals(other.bloodGroup))
+            return false;
+        if (contact == null) {
+            if (other.contact != null)
+                return false;
+        } else if (!contact.equals(other.contact))
+            return false;
+        if (dpLocation == null) {
+            if (other.dpLocation != null)
+                return false;
+        } else if (!dpLocation.equals(other.dpLocation))
+            return false;
+        if (email == null) {
+            if (other.email != null)
+                return false;
+        } else if (!email.equals(other.email))
+            return false;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        if (password == null) {
+            if (other.password != null)
+                return false;
+        } else if (!password.equals(other.password))
+            return false;
+        if (userType != other.userType)
+            return false;
+        return true;
     }
     
 }

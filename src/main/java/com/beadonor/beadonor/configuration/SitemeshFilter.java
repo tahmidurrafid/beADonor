@@ -3,10 +3,6 @@ package com.beadonor.beadonor.configuration;
 import org.sitemesh.builder.SiteMeshFilterBuilder;
 import org.sitemesh.config.ConfigurableSiteMeshFilter;
 
-/**
- * @author erfan
- * @since 4/14/21
- */
 public class SitemeshFilter extends ConfigurableSiteMeshFilter {
 
     @Override
