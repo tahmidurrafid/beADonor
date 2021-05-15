@@ -92,7 +92,7 @@ function paginationComp(state){
                     for(var i = 1; i <= 6 && i <= count; i++){
                         var pageNo = i;
                         if(count > 6) {
-                            pageNo = i <= 3? i : (i == 4 ? '...' : (count- (6-i)) )
+                            pageNo = i <= 3? i : (i == 4 ? '...' : (count- (6-i)) );
                         }
                         html += /*html*/`<a href = "${pageNo}" class = "pageNo ${pageNo == current ? `selected` : ''}">
                                     ${pageNo}</a> \n`;

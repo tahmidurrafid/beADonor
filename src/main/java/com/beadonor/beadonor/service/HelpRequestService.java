@@ -2,7 +2,7 @@ package com.beadonor.beadonor.service;
 
 import java.util.List;
 
-import com.beadonor.beadonor.Paging.Paging;
+import com.beadonor.beadonor.Utils.Paging;
 import com.beadonor.beadonor.domain.Attachment;
 import com.beadonor.beadonor.domain.HelpRequest;
 import com.beadonor.beadonor.domain.IssueStatus;

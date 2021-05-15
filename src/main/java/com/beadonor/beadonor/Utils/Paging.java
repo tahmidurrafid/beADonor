@@ -1,4 +1,4 @@
-package com.beadonor.beadonor.Paging;
+package com.beadonor.beadonor.Utils;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

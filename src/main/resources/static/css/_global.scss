@@ -220,11 +220,16 @@ form{
         width: 45% !important;
     }
 
+    .elem.toRight{
+        display: flex;
+        justify-content: flex-end;
+    }
+    
     .elem.space{
         margin : 10px 0;
     }
 
-    submit{
+    submit, button{
         font-size: $font16 !important;
         padding : 10px 20px !important;
         margin : 20px 0 !important;

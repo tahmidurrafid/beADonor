@@ -263,11 +263,20 @@ form .elem.half {
   width: 45% !important;
 }
 
+form .elem.toRight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 form .elem.space {
   margin: 10px 0;
 }
 
-form submit {
+form submit, form button {
   font-size: 16px !important;
   padding: 10px 20px !important;
   margin: 20px 0 !important;
@@ -559,10 +568,6 @@ form input:focus, form select:focus, form textarea:focus {
 #dashboard .layout .left-bar .links a.selected, #dashboard .layout .left-bar .links a:hover {
   background-color: #1C1C1C;
   color: #ffffff;
-}
-
-#dashboard .layout .left-bar .links a.selected .icon, #dashboard .layout .left-bar .links a:hover .icon {
-  margin-left: -10px;
 }
 
 #dashboard .layout .left-bar .links a.selected .icon img, #dashboard .layout .left-bar .links a:hover .icon img {
