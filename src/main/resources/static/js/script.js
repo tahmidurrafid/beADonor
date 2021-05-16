@@ -1,4 +1,21 @@
 $(document).ready(function(){
+    
+    ajaxGet("auth/me", (res)=> {
+        me = res;
+        var selector = $("nav .user-nav .settings");        
+        if(!me.name){
+            $("nav .user-nav .log-reg").removeClass("hide-It");
+        }else{
+            selector.removeClass("hide-It");
+            selector.find(".dp img").attr("src", res.dpLocation);
+            // selector.find(".dp .name").html(res.name);
+        }
+    });
+
+    $("nav").on("click", ".settings", ()=>{
+        $(this).find(".dropdown").toggleClass("hide-It");
+    })
+
     bindContactForms($('body'));
     bindBloodGroup($('body'));
     bindCategories($('body'));

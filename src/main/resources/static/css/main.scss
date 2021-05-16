@@ -53,6 +53,8 @@ nav{
         }
     }
     .user-nav{
+        display: flex;
+        align-items: center;
         .log-reg{
             a{
                 color: $orange4;
@@ -65,8 +67,60 @@ nav{
             height: 100%;
             display: flex;
             align-items: center;
-            img{
-                max-height: 70%;
+            position: relative;
+            .dp{
+                display: flex;
+                align-items: center;
+                .dp-icon{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 100px;
+                    box-sizing: border-box;
+                    border : solid 3px $lightBorder;
+                    display: block;
+                    overflow: hidden;
+                    img{
+                        display: block;
+                        width: 100%;
+                    }
+                }
+                .name{
+                    padding-left: 15px;
+                    display: block;
+                    color: $grey1;
+                    font-size: $font14;
+                    font-weight: $semibold;
+                }                
+            }
+            .dropdown{
+                z-index: 1000;
+                position: absolute;
+                color: $black;
+                width: max-content;
+                background-color: $white;
+                right: -50px;
+                top : 100%;
+                border : solid 1px $lightBorder;
+                border-top: none;
+                .item{
+                    a{
+                        i{
+                            font-size: $font18;
+                            padding-right: 15px;
+                        }
+                        // font-family: $font2;
+                        font-size: $font14;
+                        color: $grey1;
+                        padding : 15px 40px;
+                        padding-left: 30px;
+                        transition: color .3s;
+                        display: block;
+                        box-sizing: border-box;
+                        &:hover{
+                            color: $orange4;
+                        }
+                    }
+                }
             }
         }
     }

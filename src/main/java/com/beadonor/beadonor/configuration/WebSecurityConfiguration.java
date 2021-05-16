@@ -24,10 +24,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
             .authorizeRequests()
-            .antMatchers("/" , "/images/**", "/css/**", "/js/**", "/auth/registration").permitAll()
+            .antMatchers("/" , "/images/**" , "/attachments/**", 
+                "/css/**", "/js/**", "/auth/registration").permitAll()
             .anyRequest().authenticated()
             .and().formLogin().loginPage("/auth/login")
             .defaultSuccessUrl("/")
+            .permitAll()
+            .and()
+            .logout()
             .permitAll()
             ;
     }

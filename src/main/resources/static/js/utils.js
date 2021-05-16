@@ -1,5 +1,7 @@
 var apiRoot = "/api/v1/";
 
+var me = {};
+
 function ajaxGet(url, success){
     $.ajax({
         url: apiRoot + url, 
@@ -219,5 +221,13 @@ function submitForm(e, url){
     
         xhr.setRequestHeader(header, token);
     };
+
+}
+
+function importJs(path){
+    $("head").append(`<script type = "text/javascript" src = "${path}"></script`)
+}
+
+function setUser(user){
 
 }

@@ -61,6 +61,10 @@ div.para.small{
     font-weight: $regular;
 }
 
+.hide-It{
+    display: none !important;
+}
+
 @mixin button{
     padding : 12px 30px;
     color: $white;

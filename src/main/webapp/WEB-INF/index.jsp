@@ -10,13 +10,13 @@
 
     <body>
         <nav>
-            <div class = "logo">
+            <a class = "logo" href = "/">
                 <img src = "/images/logo.svg"/>
-            </div>
+            </a>
 
             <div class = "menu">
                 <div class = "items">
-                    <a class = "selected" href = "#"><span>Home</span></a>
+                    <a class = "selected" href = "/"><span>Home</span></a>
                     <a href = "#"><span>Donations</span></a>
                     <a href = "#"><span>Need Help?</span></a>
                     <a href = "#"><span>Gallery</span></a>
@@ -25,11 +25,31 @@
                 </div>
             </div>
             <div class = "user-nav">
-                <!-- <div class = "log-reg">
-                    <a href = "#">Login</a>
-                    <a href = "#">Register</a>
-                </div> -->
-                <a class = "settings"><img src = "/images/profile-photo.png" /></a>
+                <div class = "log-reg hide-It">
+                    <a href = "/auth/login">Login</a>
+                    <a href = "/auth/registration">Register</a>
+                </div>
+                <div class = "settings hide-It" href= "#">
+                    <a href = "#" class = "dp">
+                        <div class = "dp-icon">
+                            <img src = "/images/profile-photo.png" />
+                        </div>
+                    </a>
+                    <div class = "dropdown hide-It">
+                        <div class = "item">
+                            <a href = "/moderator/dashboard"><i class = "fa fa-user-plus"></i>Moderator</a>
+                        </div>
+                        <div class = "item">
+                            <a href = "/moderator/dashboard"><i class = "fa fa-dashboard"></i>Dashboard</a>
+                        </div>
+                        <div class = "item">
+                            <a href = "/moderator/dashboard"><i class = "fa fa-user-circle"></i>Profile</a>
+                        </div>
+                        <div class = "item">
+                            <a href = "/logout"><i class = "fa fa-sign-out"></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
 
