@@ -1,5 +1,10 @@
+var apiRoot = "/api/v1/";
+
+var me = {};
+
+var components = [];
+
 $(document).ready(function(){
-    
     ajaxGet("auth/me", (res)=> {
         me = res;
         var selector = $("nav .user-nav .settings");        
@@ -8,7 +13,6 @@ $(document).ready(function(){
         }else{
             selector.removeClass("hide-It");
             selector.find(".dp img").attr("src", res.dpLocation);
-            // selector.find(".dp .name").html(res.name);
         }
     });
 

@@ -1,6 +1,3 @@
-var apiRoot = "/api/v1/";
-
-var me = {};
 
 function ajaxGet(url, success){
     $.ajax({

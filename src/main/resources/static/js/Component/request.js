@@ -1,4 +1,4 @@
-function requestComp(state){
+components.request = function(state){
     return /*html*/`
     <div class = "item dpView collapsed">
         <div class = "dp">
@@ -106,4 +106,4 @@ function requestComp(state){
         </div>
     </div>
     `
-}
+};
