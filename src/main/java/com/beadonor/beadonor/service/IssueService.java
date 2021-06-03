@@ -1,5 +1,8 @@
 package com.beadonor.beadonor.service;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.beadonor.beadonor.Utils.LoggedIn;
@@ -44,8 +47,19 @@ public class IssueService<T extends Issue> {
         return issueAbstractRepository.findByStatusIn(list , pageable);
     }
 
+    public Page<T> findForUser(String status, Integer pageNo, Integer pageSize){
+        Pageable pageable = Paging.getPageable(pageNo, pageSize);
+        User user = getLoggedinUser();
+        List<IssueStatus> list = IssueStatus.getList(status);
+        return issueAbstractRepository.findForUser(list , user.getId(), pageable);
+    }
+
     public void save(T request, MultipartFile[] files){
+        request.setUser(getLoggedinUser());
         List<Attachment> attachments = attachmentService.saveAttachments(files);
+        if(request.getDate() == null){
+            request.setDate( new Timestamp(System.currentTimeMillis()) );
+        }
         request.setAttachments(attachments);
         issueAbstractRepository.save(request);
         attachmentService.setIssue(attachments, request);

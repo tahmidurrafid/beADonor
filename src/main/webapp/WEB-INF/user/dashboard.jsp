@@ -2,8 +2,8 @@
 
 <html>
     <head>
-        <title>Moderator Dasboard</title>
-        <script type = "text/javascript" src = "/js/moderator.dashboard.js"></script>
+        <title>User Dasboard</title>
+        <script type = "text/javascript" src = "/js/user.dashboard.js"></script>
         <script type = "text/javascript">
         var link = "${link}";
         var data = {

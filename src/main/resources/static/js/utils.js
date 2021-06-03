@@ -145,6 +145,10 @@ function submitForm(e, url){
     var form = $(e).closest("form");
     var response = dfs(form);
 
+    form.submit(function(e){
+        return false;
+    })
+
     console.log(JSON.stringify(response));
     console.log(response);
 
@@ -223,6 +227,20 @@ function submitForm(e, url){
 
 function importJs(path){
     $("head").append(`<script type = "text/javascript" src = "${path}"></script`)
+}
+
+function attachmentUpdate(selector){
+    var attachment = $(selector).closest(".attachments");
+    if($(selector)[0].files.length == 0){
+        $(selector).closest(".elem").remove();
+    }
+    if( attachment.find("input[type='file']").last()[0].files.length != 0 ){
+        attachment.append(/*html*/`
+        <div class = "elem">
+            <input type = "file" value="Browse your file"/>
+        </div>            
+        `);
+    }
 }
 
 function setUser(user){

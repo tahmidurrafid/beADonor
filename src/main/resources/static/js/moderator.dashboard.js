@@ -15,11 +15,8 @@ importJs('/js/Component/gifts.js')
         gifts
 */
 
-var pageSize = 5;
-
 class DashboardFactory{
     create = function(dashboard, state){
-        console.log(state)
         if(dashboard == "requests"){
             createRequests(state);
         }else if(dashboard == "payments"){

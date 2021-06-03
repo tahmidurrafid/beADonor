@@ -1,0 +1,60 @@
+2.
+DFS(G)
+	loop = FALSE
+	for each vertex in G.V
+		u.color = WHITE
+		u.p = NIL
+	for each vertex u (- G.V
+		if u.color == WHITE
+			loop = loop || DFS-Visit(G, u)
+	return loop
+
+DFS-Visit(G, u)
+	loop = FALSE
+	u.color = GRAY
+	for each v (- G.adj[u] AND u.p != v
+		if v.color == WHITE
+			v.p = u
+			loop = loop || DFS-Visit(G, v)
+		else if v.color == GRAY
+			PRINT (u, v) // Back Edge
+			loop = TRUE
+		else
+			loop = TRUE
+	u.color = BLACK
+	return loop
+	
+
+1.
+
+BFS(G, s, d)
+	for each vertex u (- G.V - {s}
+		u.color = WHITE
+		u.d = Inf
+		u.p = NIL
+	s.color = GRAY
+	s.d = 0
+	s.p = NIL
+	
+	Q = 0/
+	Enqueue(Q, s)
+	while Q is not empty
+		u = Dequeue(Q)
+		for each v (- G.adj[u]
+			if v.color == WHITE
+				v.color = GRAY
+				v.d = u.d + 1
+				v.p = u
+				Enqueue(Q, v)
+		u.color = BLACK
+	
+	St = new Stack()
+	PUSH(St, d)
+	u = d
+	While(u.p != NIL)
+		PUSH(St , u.p)
+		u = St.p
+
+	While St is not empty
+		u = POP(St)
+		PRINT u

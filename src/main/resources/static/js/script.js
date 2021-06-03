@@ -2,6 +2,8 @@ var apiRoot = "/api/v1/";
 
 var me = {};
 
+var pageSize = 5;
+
 var components = [];
 
 $(document).ready(function(){
