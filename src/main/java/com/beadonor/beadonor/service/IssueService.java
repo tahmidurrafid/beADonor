@@ -1,14 +1,11 @@
 package com.beadonor.beadonor.service;
 
-import java.sql.Date;
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.List;
 
 import com.beadonor.beadonor.Utils.LoggedIn;
 import com.beadonor.beadonor.Utils.Paging;
 import com.beadonor.beadonor.domain.Attachment;
-import com.beadonor.beadonor.domain.HelpRequest;
 import com.beadonor.beadonor.domain.Issue;
 import com.beadonor.beadonor.domain.IssueStatus;
 import com.beadonor.beadonor.domain.User;
@@ -41,17 +38,19 @@ public class IssueService<T extends Issue> {
         Pageable pageable = Paging.getPageable(pageNo, pageSize);
         User user = getLoggedinUser();
         if(status.equalsIgnoreCase("MARKED")){
-            return issueAbstractRepository.findForMarked(user.getId() , pageable);
+            return getRepository().findForMarked(user.getId() , pageable);
         }
         List<IssueStatus> list = IssueStatus.getList(status);
-        return issueAbstractRepository.findByStatusIn(list , pageable);
+
+        // return issueAbstractRepository.findByStatusIn(list , pageable);
+        return getRepository().findByStatusIn(list , pageable);
     }
 
     public Page<T> findForUser(String status, Integer pageNo, Integer pageSize){
         Pageable pageable = Paging.getPageable(pageNo, pageSize);
         User user = getLoggedinUser();
         List<IssueStatus> list = IssueStatus.getList(status);
-        return issueAbstractRepository.findForUser(list , user.getId(), pageable);
+        return getRepository().findForUser(list , user.getId(), pageable);
     }
 
     public void save(T request, MultipartFile[] files){
@@ -61,8 +60,20 @@ public class IssueService<T extends Issue> {
             request.setDate( new Timestamp(System.currentTimeMillis()) );
         }
         request.setAttachments(attachments);
-        issueAbstractRepository.save(request);
+        getRepository().save(request);
         attachmentService.setIssue(attachments, request);
+    }
+
+    public void save(T request){
+        request.setUser(getLoggedinUser());
+        if(request.getDate() == null){
+            request.setDate( new Timestamp(System.currentTimeMillis()) );
+        }
+        getRepository().save(request);
+    }
+
+    public IssueAbstractRepository<T> getRepository(){
+        return issueAbstractRepository;
     }
 
 }

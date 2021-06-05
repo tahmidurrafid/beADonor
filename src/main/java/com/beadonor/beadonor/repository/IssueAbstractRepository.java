@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IssueAbstractRepository<T extends Issue> extends PagingAndSortingRepository<T, Integer>{
+
     @Query("SELECT p from #{#entityName} p WHERE p.status IN (:statuses) ")
     public Page<T> findByStatusIn(@Param("statuses") List<IssueStatus> statuses, Pageable page);
 

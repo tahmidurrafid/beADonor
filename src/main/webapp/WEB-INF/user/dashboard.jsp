@@ -26,19 +26,19 @@
                         <img src = "/images/baricons/fi-rr-home.svg" /> <span>Dashboard</span>
                     </div>
                     <div class = "links">
-                        <a href = "/moderator/requests">
+                        <a href = "/user/requests">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-cursor-finger.svg"/></span>
                             <span>Help Request</span>
                         </a>
-                        <a href = "/moderator/payments">
+                        <a href = "/user/payments">
                             <span class = "icon"><img src = "/images/baricons/009-trust.svg"/></span>
-                            <span>Confirm Payment</span>
+                            <span>Make Payment</span>
                         </a>
-                        <a href = "/moderator/items">
+                        <a href = "/user/items">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-shopping-cart-check.svg"/></span>
-                            <span>Confirm Items</span>
+                            <span>Donate Items</span>
                         </a>
-                        <a href = "/moderator/info">
+                        <a href = "/user/info">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-diploma.svg"/></span>
                             <span>Review Info</span>
                         </a>
@@ -46,7 +46,7 @@
                             <span class = "icon"><img src = "/images/baricons/fi-rr-stats.svg"/></span>
                             <span>Statistics</span>
                         </a>
-                        <a href = "/moderator/gifts">
+                        <a href = "/user/gifts">
                             <span class = "icon"><img src = "/images/baricons/048-success.svg"/></span>
                             <span>Send Gifts</span>
                         </a>

@@ -6,6 +6,8 @@ importJs('/js/Component/info.js')
 importJs('/js/Component/gifts.js')
 
 importJs('/js/Component/requestForm.js')
+importJs('/js/Component/paymentForm.js')
+
 /* 
     components:
         request
@@ -45,14 +47,6 @@ class DashboardFactory{
     }
 }
 
-function createPayments(){
-    ajaxGet("payments/", (res)=>{
-        for(var i = 0; i < res.length; i++){
-            $(".topic-content .items").append( components.payment( replaceNulls(res[i]) ) );
-        }
-    })
-}
-
 function createRequests(state){
     var data = {
         status : state.state.toUpperCase(),
@@ -81,6 +75,34 @@ function createRequests(state){
         });
     }
 }
+
+function createPayments(state){
+
+    var data = {
+        status : state.state.toUpperCase(),
+        pageNo : state.page,
+        pageSize : pageSize
+    }
+
+    if( state.state.toUpperCase() == "ALL"){
+        ajaxGet("user/payments?" + serializeBody(data) , (res)=>{
+            for(var i = 0; i < res.content.length; i++){
+                $(".topic-content .items").append( components.payment( replaceNulls(res.content[i]) ) );
+            }
+            $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
+                    current : parseInt(state.page, 10) }) );
+        })
+    }else if( state.state.toUpperCase() == "CREATE"){
+        ajaxGet("categories/donation", (res)=>{
+            let formState = {
+                categories : res
+            };
+            $(".topic-content").append( components.paymentForm( formState ) );
+        });
+    }
+
+}
+
 
 function createItems(){
     ajaxGet("items/", (res)=>{

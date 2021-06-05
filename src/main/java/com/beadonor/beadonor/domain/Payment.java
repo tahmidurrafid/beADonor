@@ -1,5 +1,6 @@
 package com.beadonor.beadonor.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,7 +20,7 @@ public class Payment extends Issue{
     @JoinColumn(name = "category_id")
     private DonationCategory category;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ref_issue_id")
     private Issue refIssue;
 

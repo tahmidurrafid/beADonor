@@ -5,7 +5,7 @@ components.requestForm = function(state){
     <div class = "items">
         <div class = "item dpView expanded">
             <div class = "dp">
-                <img src = "/images/dp.png" />
+                <img src = "${me.dpLocation}" />
             </div>
             <div class = "details">
 

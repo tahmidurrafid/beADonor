@@ -20,10 +20,10 @@ public class UserController {
 
     UserController(){
         redirects.put("requests", "requests/all/1");
-        redirects.put("payments", "payments/pending/1");
-        redirects.put("items", "items/pending/1");
-        redirects.put("info", "info/pending/1");
-        redirects.put("gifts", "gifts/pending/1");
+        redirects.put("payments", "payments/all/1");
+        redirects.put("items", "items/all/1");
+        redirects.put("info", "info/all/1");
+        redirects.put("gifts", "gifts/all/1");
     }
 
     @GetMapping("/{base}/{state}/{page}")
@@ -39,7 +39,7 @@ public class UserController {
         if(redirects.get(base) != null){
             return new RedirectView(redirects.get(base));
         }
-        return new RedirectView("requests/pending/1");        
+        return new RedirectView("requests/all/1");        
     }
 
     @GetMapping("/{base}/{state}")

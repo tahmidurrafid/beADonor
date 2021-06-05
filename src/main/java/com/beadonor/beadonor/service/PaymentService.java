@@ -1,15 +1,15 @@
 package com.beadonor.beadonor.service;
 
 import java.util.List;
-
 import com.beadonor.beadonor.domain.Payment;
+import com.beadonor.beadonor.repository.IssueAbstractRepository;
 import com.beadonor.beadonor.repository.PaymentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PaymentService {
+public class PaymentService extends IssueService< Payment >{
     @Autowired
     PaymentRepository paymentRepository;
 
@@ -17,7 +17,7 @@ public class PaymentService {
         return paymentRepository.findAll();
     }
 
-    public void save(Payment payment){
-        paymentRepository.save(payment);
+    public IssueAbstractRepository<Payment> getRepository(){
+        return paymentRepository;
     }
 }

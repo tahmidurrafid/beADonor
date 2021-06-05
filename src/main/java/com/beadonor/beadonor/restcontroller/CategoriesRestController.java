@@ -2,10 +2,9 @@ package com.beadonor.beadonor.restcontroller;
 
 import java.util.List;
 
+import com.beadonor.beadonor.domain.DonationCategory;
 import com.beadonor.beadonor.domain.HelpCategory;
-import com.beadonor.beadonor.domain.HelpRequest;
 import com.beadonor.beadonor.service.CategoryServices;
-import com.beadonor.beadonor.service.HelpRequestService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,5 +21,10 @@ public class CategoriesRestController {
     @GetMapping("helpRequest")
     public List<HelpCategory> getRequests(){
         return categoryServices.allHelpCategories();
+    }
+
+    @GetMapping("donation")
+    public List<DonationCategory> getDonations(){
+        return categoryServices.allDonationCategories();
     }
 }

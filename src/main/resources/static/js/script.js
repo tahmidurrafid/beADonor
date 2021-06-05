@@ -15,6 +15,7 @@ $(document).ready(function(){
         }else{
             selector.removeClass("hide-It");
             selector.find(".dp img").attr("src", res.dpLocation);
+            $("nav .user-nav .log-reg").addClass("hide-It");            
         }
     });
 

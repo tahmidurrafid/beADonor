@@ -1,8 +1,9 @@
 
-function ajaxGet(url, success){
+function ajaxGet(url, success, error){
     $.ajax({
         url: apiRoot + url, 
-        success: success
+        success: success,
+        error: error
     });
 }
 

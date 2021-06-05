@@ -2,12 +2,12 @@ components.payment = function(state){
     return /*html*/ `
     <div class = "item dpView collapsed">
         <div class = "dp">
-            <img src = "${state.user.dpLocation}" />
+            <img src = "${state.user? state.user.dpLocation : ''}" />
         </div>
         <div class = "details">
             <div class = "bar">
                 <div class = "elem half">
-                    <h6>${state.category.name}</h6>
+                    <h6>${state.category? state.category.name : ''}</h6>
                     <table>
                         <tr>
                             <td>Amount : </td><td>${state.amount} Taka</td>
@@ -20,7 +20,7 @@ components.payment = function(state){
                 <div class = "elem half">
                     <table>
                         <tr>
-                            <td>Method : </td><td>${state.method.name}</td>
+                            <td>Method : </td><td>${state.method? state.method.name : ''}</td>
                         </tr>
                         <tr>
                             <td>Transaction ID </td><td>${state.transactionId}</td>

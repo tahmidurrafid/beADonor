@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class = "user-nav">
-                <div class = "log-reg hide-It">
+                <div class = "log-reg">
                     <a href = "/auth/login">Login</a>
                     <a href = "/auth/registration">Register</a>
                 </div>
@@ -40,7 +40,7 @@
                             <a href = "/moderator/dashboard"><i class = "fa fa-user-plus"></i>Moderator</a>
                         </div>
                         <div class = "item">
-                            <a href = "/moderator/dashboard"><i class = "fa fa-dashboard"></i>Dashboard</a>
+                            <a href = "/user/dashboard"><i class = "fa fa-dashboard"></i>Dashboard</a>
                         </div>
                         <div class = "item">
                             <a href = "/moderator/dashboard"><i class = "fa fa-user-circle"></i>Profile</a>

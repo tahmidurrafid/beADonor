@@ -3,7 +3,6 @@ package com.beadonor.beadonor.service;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.beadonor.beadonor.Utils.LoggedIn;
 import com.beadonor.beadonor.domain.User;
 import com.beadonor.beadonor.repository.UserRepository;
 
