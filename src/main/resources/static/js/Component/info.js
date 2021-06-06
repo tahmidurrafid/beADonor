@@ -1,6 +1,6 @@
 components.info = function(state){
     return /*html*/`
-    <div class = "item dpView expanded">
+    <div class = "item dpView collapsed">
         <div class = "dp">
             <img src = "${state.user? state.user.dpLocation : ''}" />
         </div>

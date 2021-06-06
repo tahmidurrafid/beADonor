@@ -40,7 +40,7 @@
                         </a>
                         <a href = "/user/info">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-diploma.svg"/></span>
-                            <span>Review Info</span>
+                            <span>Submit Info</span>
                         </a>
                         <a href = "statistics">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-stats.svg"/></span>
