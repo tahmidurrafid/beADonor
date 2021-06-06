@@ -2,21 +2,21 @@ components.items = function(state){
     return /*html*/`
     <div class = "item dpView collapsed">
         <div class = "dp">
-            <img src = "${state.user.dpLocation}" />
+            <img src = "${state.user? state.user.dpLocation : ''}" />
         </div>
         <div class = "details">
             <h4>
                 ${state.title}
             </h4>
             <div class = "bar">
-                <h6>${state.category.name}</h6>
+                <h6>${state.category? state.category.name : ''}</h6>
                 <h6>${state.date}</h6>
             </div>
             <div class = "para small">
                 ${state.description}
             </div>
             <div class = "bar">
-                <h5 class = "dash">By ${state.user.name}</h5>
+                <h5 class = "dash">By ${state.user? state.user.name : ''}</h5>
                 <a class = "button solid small white exp" data-action = "toggleDpView">
                     View Details
                 </a>
@@ -27,16 +27,18 @@ components.items = function(state){
                     <table>
                         <tr>
                             <td>Name : </td>
-                            <td>${state.contact.contactName}</td>
+                            <td>${state.contact? state.contact.contactName : ''}</td>
                         </tr>
                         <tr>
                             <td>Phone : </td>
-                            <td>${state.contact.phoneNo}</td>
+                            <td>${state.contact? state.contact.phoneNo : ''}</td>
                         </tr>
                         <tr>
                             <td>Address : </td>
-                            <td>${state.contact.address} <br />
-                            ${state.contact.area.name}, ${state.contact.area.district.name}.</td>
+                            <td>${state.contact? state.contact.address : ''} <br />
+                            ${state.contact && state.contact.area? state.contact.area.name : ''}, 
+                            ${state.contact && state.contact.area && state.contact.area.district ? 
+                                state.contact.area.district.name : ''}.</td>
                         </tr>
                     </table>
                 </div>
@@ -45,7 +47,7 @@ components.items = function(state){
 
             <div class = "elem colap">
                 <h5>Attachments :</h5>
-                ${state.attachments.map( (attc) => /*html*/`
+                ${state.attachments ? state.attachments.map( (attc) => /*html*/`
                 <a class = "attach" href = "#">
                     <div class = "download">
                         <img src = "/images/fi-rr-cloud-download.svg" />
@@ -54,7 +56,7 @@ components.items = function(state){
                         ${attc.location}
                     </div>
                 </a>
-                `).join("") }
+                `).join("") : ''}
 
             </div>
             <div class = "bar colap">

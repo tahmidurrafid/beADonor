@@ -37,6 +37,9 @@ public class IssueService<T extends Issue> {
     public Page<T> findByFilteringAndPaging(String status, Integer pageNo, Integer pageSize){
         Pageable pageable = Paging.getPageable(pageNo, pageSize);
         User user = getLoggedinUser();
+        if(status == null){
+            status = "ALL";
+        }
         if(status.equalsIgnoreCase("MARKED")){
             return getRepository().findForMarked(user.getId() , pageable);
         }
@@ -49,6 +52,9 @@ public class IssueService<T extends Issue> {
     public Page<T> findForUser(String status, Integer pageNo, Integer pageSize){
         Pageable pageable = Paging.getPageable(pageNo, pageSize);
         User user = getLoggedinUser();
+        if(status == null){
+            status = "ALL";
+        }
         List<IssueStatus> list = IssueStatus.getList(status);
         return getRepository().findForUser(list , user.getId(), pageable);
     }

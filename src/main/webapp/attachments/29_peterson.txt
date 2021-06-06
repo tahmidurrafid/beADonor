@@ -1,0 +1,11 @@
+Peterson's solution satisfies the conditions of the critical section problem. The condition of ciritical-section problems are:
+	1. mutual exclusion
+	2. Progress
+	3. Bounded waiting. 
+mutual exclusion: In peterson's solution mutual exclusion is staisfied. Two processes can never be in the critical section at the same time. When process 0 is in it's critical section flag[0] is true and the other flag is then false. There is also a turn variable which determines which process is currently trying to enter the critical region.
+
+Progress: If no process is in its critical region and some process tries to enter the critical section, no process will wait indefinitely. Peterson solution ensures that no process waits indefinitely. 
+
+Bounded waiting: In peterson's algorithm no process will wait more than one turn for entrance to the critical region. SO the bounded waiting problem is also solved. 
+
+When flag[0] is true, flag[1] is true and turn is 0 indicates that P0 is currently on its critical region and P1 is trying to enter in its critical region. As it can never the value of turn be 0 and 1 at the same time, two processes can not enter critical region at the same time. When process 0 finishes its completion, then turn can be 1 and P1 can enter its critical region. 

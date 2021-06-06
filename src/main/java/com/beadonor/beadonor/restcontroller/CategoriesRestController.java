@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.beadonor.beadonor.domain.DonationCategory;
 import com.beadonor.beadonor.domain.HelpCategory;
+import com.beadonor.beadonor.domain.ItemCategory;
 import com.beadonor.beadonor.service.CategoryServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,10 @@ public class CategoriesRestController {
     @GetMapping("donation")
     public List<DonationCategory> getDonations(){
         return categoryServices.allDonationCategories();
+    }
+
+    @GetMapping("item")
+    public List<ItemCategory> getItems(){
+        return categoryServices.allItemCategories();
     }
 }

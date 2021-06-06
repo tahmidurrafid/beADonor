@@ -7,6 +7,7 @@ importJs('/js/Component/gifts.js')
 
 importJs('/js/Component/requestForm.js')
 importJs('/js/Component/paymentForm.js')
+importJs('/js/Component/itemForm.js')
 
 /* 
     components:
@@ -104,12 +105,33 @@ function createPayments(state){
 }
 
 
-function createItems(){
-    ajaxGet("items/", (res)=>{
-        for(var i = 0; i < res.length; i++){
-            $(".topic-content .items").append( components.items( replaceNulls(res[i]) ) );
-        }
-    })
+function createItems(state){
+
+    var data = {
+        status : state.state.toUpperCase(),
+        pageNo : state.page,
+        pageSize : pageSize
+    }
+    if( state.state.toUpperCase() == "ALL"){
+        ajaxGet("user/items/" , (res)=>{
+            console.log(res);
+            for(var i = 0; i < res.content.length; i++){
+                $(".topic-content .items").append( components.items( replaceNulls(res.content[i]) ) );
+            }
+            $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
+                    current : parseInt(state.page, 10) }) );
+        })
+    }else if( state.state.toUpperCase() == "CREATE"){
+        ajaxGet("categories/item", (res)=>{
+            let formState = {
+                categories : res
+            };
+            $(".topic-content").append( components.itemForm( formState ) );
+            bindContactForms($(".topic-content"));            
+        });
+    }
+
+
 }
 
 function createInfo(){
