@@ -73,6 +73,11 @@ public class HelpRequest extends Issue{
     public void setGuardianContact(ContactPerson guardianContact) {
         this.guardianContact = guardianContact;
     }
+    @Override
+    public String toString() {
+        return super.toString() + " = = " + "HelpRequest [amount=" + amount + ", contact=" + contact + ", description=" + description
+                + ", guardianContact=" + guardianContact + ", helpCategory=" + helpCategory + ", title=" + title + "]";
+    }
 
 
     

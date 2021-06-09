@@ -62,14 +62,9 @@ components.items = function(state){
             <div class = "bar colap">
                 <div class = "elem flex">
                     <h5>Choose Action</h5>
-                    <select>
-                        <option>Approve</option>
-                        <option>Mark</option>
-                        <option>Reject</option>
-                    </select>
-                    <a href = "#" class = "button solid white small">
-                        Go
-                    </a>
+                    ${components.stateChanger({hit : "issue/status/" + state.id, 
+                    status : state.status})}
+
                 </div>
                 <div class = "elem flex">
                     <a href = "#" class = "button solid white small"  data-action = "toggleDpView">

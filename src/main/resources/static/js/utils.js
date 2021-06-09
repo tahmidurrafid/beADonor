@@ -27,6 +27,18 @@ function ajaxPost(url, data, success){
     });
 }
 
+function ajaxPut(url, data, success, error){
+    $.ajax({
+        url: apiRoot + url, 
+        type: 'PUT',        
+        data: JSON.stringify(data),
+        contentType : 'application/json',
+        dataType : 'json',
+        success: success,
+        error : error
+    });
+}
+
 function ajaxPostUpload(url, data, success, error){
     // $.ajax({
     //     type: "POST",

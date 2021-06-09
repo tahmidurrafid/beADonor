@@ -84,5 +84,10 @@ public class Issue implements Serializable{
     public void setDate(Timestamp date) {
         this.date = date;
     }
+    @Override
+    public String toString() {
+        return "Issue [attachments=" + attachments + ", date=" + date + ", id=" + id + ", markedByUser=" + markedByUser
+                + ", status=" + status + ", type=" + type + ", user=" + user + "]";
+    }
     
 }

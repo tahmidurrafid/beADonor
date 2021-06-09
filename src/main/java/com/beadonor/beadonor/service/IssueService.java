@@ -1,7 +1,9 @@
 package com.beadonor.beadonor.service;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.beadonor.beadonor.Utils.LoggedIn;
 import com.beadonor.beadonor.Utils.Paging;
@@ -76,6 +78,30 @@ public class IssueService<T extends Issue> {
             request.setDate( new Timestamp(System.currentTimeMillis()) );
         }
         getRepository().save(request);
+    }
+
+    public Map<String, Object> changeStatus(Integer id, Map<String, Object> req){
+        Map<String, Object> back = new HashMap<>();
+        T res = getRepository().findById(id).get();
+        IssueStatus status = IssueStatus.valueOf((String)req.get("status")) ;
+        boolean confirm = false;
+        if(req.containsKey("confirm") && ((String)req.get("confirm")).equalsIgnoreCase("YES") ){
+            confirm = true;
+        }
+        User loggedIn = getLoggedinUser();
+        if(res.getStatus() == IssueStatus.PENDING){
+            res.setMarkedByUser(null);
+        }
+        if(res.getMarkedByUser() != null  && 
+            res.getMarkedByUser().getId() != loggedIn.getId() && !confirm){
+            back.put("success", 0);
+            return back;
+        }
+        res.setMarkedByUser(loggedIn);
+        res.setStatus(status);
+        getRepository().save(res);
+        back.put("success", 1);
+        return back;
     }
 
     public IssueAbstractRepository<T> getRepository(){

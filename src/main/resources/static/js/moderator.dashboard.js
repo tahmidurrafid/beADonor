@@ -4,6 +4,7 @@ importJs('/js/Component/payment.js')
 importJs('/js/Component/items.js')
 importJs('/js/Component/info.js')
 importJs('/js/Component/gifts.js')
+importJs('/js/Component/stateChanger.js')
 
 /* 
     components:
@@ -32,6 +33,7 @@ class DashboardFactory{
         $("#dashboard").find(".content .tab>a").each(function(index){
             if($(this).attr("href").toUpperCase().includes( state.state.toUpperCase() ) ){
                 $(this).addClass("selected");
+                console.log(state.state)
             }
         })
 
@@ -42,14 +44,6 @@ class DashboardFactory{
         });
         
     }
-}
-
-function createPayments(){
-    ajaxGet("payments/", (res)=>{
-        for(var i = 0; i < res.length; i++){
-            $(".topic-content .items").append( components.payment( replaceNulls(res[i]) ) );
-        }
-    })
 }
 
 function createRequests(state){
@@ -70,20 +64,57 @@ function createRequests(state){
     })
 }
 
-function createItems(){
-    ajaxGet("items/", (res)=>{
-        for(var i = 0; i < res.length; i++){
-            $(".topic-content .items").append( components.items( replaceNulls(res[i]) ) );
+function createPayments(state){
+    var data = {
+        status : state.state.toUpperCase(),
+        pageNo : state.page,
+        pageSize : pageSize
+    }
+
+    ajaxGet("payments?" + serializeBody(data) , (res)=>{
+        for(var i = 0; i < res.content.length; i++){
+            $(".topic-content .items").append( components.request( replaceNulls(res.content[i]) ) );
         }
+        console.log(parseInt(res.totalPages, 10))
+        $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
+                current : parseInt(state.page, 10) }) );
     })
 }
 
-function createInfo(){
-    ajaxGet("info/", (res)=>{
-        for(var i = 0; i < res.length; i++){
-            $(".topic-content .items").append( components.info( replaceNulls(res[i]) ) );
+function createItems(state){
+    var data = {
+        status : state.state.toUpperCase(),
+        pageNo : state.page,
+        pageSize : pageSize
+    }
+
+    ajaxGet("items?" + serializeBody(data) , (res)=>{
+        for(var i = 0; i < res.content.length; i++){
+            $(".topic-content .items").append( components.request( replaceNulls(res.content[i]) ) );
         }
-    }) 
+        console.log(parseInt(res.totalPages, 10))
+        $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
+                current : parseInt(state.page, 10) }) );
+    })
+}
+    
+
+function createInfo(state){
+    var data = {
+        status : state.state.toUpperCase(),
+        pageNo : state.page,
+        pageSize : pageSize
+    }
+
+    ajaxGet("info?" + serializeBody(data) , (res)=>{
+        for(var i = 0; i < res.content.length; i++){
+            $(".topic-content .items").append( components.request( replaceNulls(res.content[i]) ) );
+        }
+        console.log(parseInt(res.totalPages, 10))
+        $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
+                current : parseInt(state.page, 10) }) );
+    })
+
 }
 
 function createGifts(){

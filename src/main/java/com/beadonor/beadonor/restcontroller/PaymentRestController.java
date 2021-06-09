@@ -1,7 +1,5 @@
 package com.beadonor.beadonor.restcontroller;
 
-import java.util.List;
-
 import com.beadonor.beadonor.domain.Payment;
 import com.beadonor.beadonor.service.PaymentService;
 
