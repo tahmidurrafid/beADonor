@@ -1,6 +1,6 @@
 components.request = function(state){
     return /*html*/`
-    <div class = "item dpView expanded">
+    <div class = "item dpView collapsed">
         <div class = "dp">
             <img src = "${state.user? state.user.dpLocation : ''}" />
         </div>
@@ -73,7 +73,7 @@ components.request = function(state){
 
             <div class = "elem colap">
                 <h5>Attachments :</h5>
-                ${state.attachments.map( (attc) => `
+                ${state.attachments.map( (attc) => /*html*/`
                 <a class = "attach" href = "#">
                     <div class = "download">
                         <img src = "/images/fi-rr-cloud-download.svg" />

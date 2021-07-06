@@ -52,6 +52,7 @@ function createRequests(state){
         pageNo : state.page,
         pageSize : pageSize
     }
+    console.log("request Data" , data);
 
     console.log("helpRequests?" + serializeBody(data));
     ajaxGet("helpRequests?" + serializeBody(data) , (res)=>{
@@ -117,10 +118,20 @@ function createInfo(state){
 
 }
 
-function createGifts(){
-    ajaxGet("gifts/", (res)=>{
-        for(var i = 0; i < res.length; i++){
-            $(".topic-content .items").append( components.gifts( replaceNulls(res[i]) ) );
+function createGifts(state){
+
+    var data = {
+        status : state.state.toUpperCase(),
+        pageNo : state.page,
+        pageSize : pageSize
+    }
+
+    ajaxGet("gifts?" + serializeBody(data) , (res)=>{
+        for(var i = 0; i < res.content.length; i++){
+            $(".topic-content .items").append( components.gifts( replaceNulls(res.content[i]) ) );
         }
+        $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
+                current : parseInt(state.page, 10) }) );
     })
+
 }
