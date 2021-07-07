@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 public class Payment extends Issue{
     private Integer amount;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "methodName")
     private PaymentMethod method;
 

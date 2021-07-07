@@ -50,7 +50,7 @@
                             <span class = "icon"><img src = "/images/baricons/048-success.svg"/></span>
                             <span>Send Gifts</span>
                         </a>
-                        <a href = "profile">
+                        <a href = "/user/profile">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-user.svg"/></span>
                             <span>Profile Settings</span>
                         </a>

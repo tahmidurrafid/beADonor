@@ -37,6 +37,17 @@ public class User implements Serializable{
 
     private String dpLocation;
 
+    private Integer points;
+
+    public Integer getPoints() {
+        if(points == null){
+            points = 0;
+        }
+        return points;
+    }
+    public void setPoints(Integer points) {
+        this.points = points;
+    }
     public String getDpLocation() {
         return dpLocation;
     }

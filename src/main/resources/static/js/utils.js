@@ -68,7 +68,7 @@ function replaceNulls(json){
     return data;
 }
 
-function bindContactForms(parent){
+function bindContactForms(parent, callBack){
     var contacts = parent.find("[data-action='auto_contact']");
     
     for(let i = 0; i < contacts.length; i++){
@@ -235,6 +235,53 @@ function submitForm(e, url){
     
         xhr.setRequestHeader(header, token);
     };
+
+}
+
+function parseForm(form){
+
+    return dfs(form);
+
+    function dfs(form){
+        var elems = form.children("*");
+        var json = {};
+        for(var i = 0; i < elems.length; i++){
+            var elem = elems.eq(i);
+            var res = dfs( elems.eq(i) );
+
+            if(elem.is(".ignore")){
+                continue;
+            }else if(elem.is("input[type='checkbox']")){
+                var value = elem.prop("checked");
+                var name = elem.attr("name");
+                if(value != null)
+                    json[name] = value;                
+            }else if(elem.is("input,textarea")){
+                var value = elem.val();
+                var name = elem.attr("name");
+                if(value != null)
+                    json[name] = value;
+            }else if(elem.is("select")){
+                var value = elem.val();
+                var name = elem.attr("name");
+                if(value != null)
+                    json[name] = value;
+            }else if(elem.is(".group")){
+                var name = elem.attr("data-group");
+                var tempRes = {};
+                if(! jQuery.isEmptyObject(res)){
+                    tempRes[name] = res;
+                    res = tempRes;
+                }
+            }
+            if(! jQuery.isEmptyObject(res)){
+                for(var key in res){
+                    json[key] = res[key];
+                }
+            }            
+        }
+        return json;
+    }
 
 }
 

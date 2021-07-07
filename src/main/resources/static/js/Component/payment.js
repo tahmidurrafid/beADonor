@@ -48,11 +48,12 @@ components.payment = function(state){
 
             <div class = "bar colap">
                 <div class = "elem flex">
-                    <h5>Choose Action</h5>
-                    ${components.stateChanger({hit : "issue/status/" + state.id, 
-                    status : state.status})}
-
-                </div>
+                    ${state.hideStateChanger? `` : /*html*/`
+                        <h5>Choose Action</h5>
+                        ${components.stateChanger({hit : "issue/status/" + state.id, 
+                        status : state.status})}
+                    `}
+                </div>                
                 <div class = "elem flex">
                     <a href = "#" class = "button solid white small" data-action = "toggleDpView">
                         View Less

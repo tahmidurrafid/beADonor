@@ -8,8 +8,12 @@ import java.util.Map;
 import com.beadonor.beadonor.Utils.LoggedIn;
 import com.beadonor.beadonor.Utils.Paging;
 import com.beadonor.beadonor.domain.Attachment;
+import com.beadonor.beadonor.domain.HelpRequest;
+import com.beadonor.beadonor.domain.Info;
 import com.beadonor.beadonor.domain.Issue;
 import com.beadonor.beadonor.domain.IssueStatus;
+import com.beadonor.beadonor.domain.Item;
+import com.beadonor.beadonor.domain.Payment;
 import com.beadonor.beadonor.domain.User;
 import com.beadonor.beadonor.repository.IssueAbstractRepository;
 import com.beadonor.beadonor.repository.UserRepository;
@@ -46,7 +50,7 @@ public class IssueService<T extends Issue> {
             return getRepository().findForMarked(user.getId() , pageable);
         }
         List<IssueStatus> list = IssueStatus.getList(status);
-
+        // System.out.println(user.getName());
         // return issueAbstractRepository.findByStatusIn(list , pageable);
         return getRepository().findByStatusIn(list , pageable);
     }
@@ -88,7 +92,9 @@ public class IssueService<T extends Issue> {
         if(req.containsKey("confirm") && ((String)req.get("confirm")).equalsIgnoreCase("YES") ){
             confirm = true;
         }
+
         User loggedIn = getLoggedinUser();
+        User issueUser = res.getUser();
         if(res.getStatus() == IssueStatus.PENDING){
             res.setMarkedByUser(null);
         }
@@ -97,7 +103,20 @@ public class IssueService<T extends Issue> {
             back.put("success", 0);
             return back;
         }
+        // System.out.println(T instanceof HelpRequest);
         res.setMarkedByUser(loggedIn);
+        if(status == IssueStatus.APPROVED){
+            if(res instanceof Payment){
+                issueUser.setPoints(issueUser.getPoints() + 10);
+            }
+            if(res instanceof Item){
+                issueUser.setPoints(issueUser.getPoints() + 10);                
+            }
+            if(res instanceof Info){
+                issueUser.setPoints(issueUser.getPoints() + 5);                
+            }
+            userRepository.save(issueUser);
+        }
         res.setStatus(status);
         getRepository().save(res);
         back.put("success", 1);

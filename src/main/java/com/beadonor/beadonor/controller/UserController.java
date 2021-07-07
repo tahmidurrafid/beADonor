@@ -24,6 +24,7 @@ public class UserController {
         redirects.put("items", "items/all/1");
         redirects.put("info", "info/all/1");
         redirects.put("gifts", "gifts/all/1");
+        redirects.put("profile", "profile");
     }
 
     @GetMapping("/{base}/{state}/{page}")
@@ -31,6 +32,14 @@ public class UserController {
         model.put("link", base);
         model.put("state", state);
         model.put("page", page);
+        return DASHBOARD;
+    }
+
+    @GetMapping("/profile")
+    public String profile(ModelMap model){
+        model.put("link", "profile");
+        model.put("state", "profile");
+        model.put("page", "profile");
         return DASHBOARD;
     }
 

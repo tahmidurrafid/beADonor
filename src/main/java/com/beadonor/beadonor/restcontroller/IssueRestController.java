@@ -1,7 +1,5 @@
 package com.beadonor.beadonor.restcontroller;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.beadonor.beadonor.domain.Issue;
