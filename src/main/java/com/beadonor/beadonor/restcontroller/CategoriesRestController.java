@@ -3,6 +3,7 @@ package com.beadonor.beadonor.restcontroller;
 import java.util.List;
 
 import com.beadonor.beadonor.domain.DonationCategory;
+import com.beadonor.beadonor.domain.GiftCategory;
 import com.beadonor.beadonor.domain.HelpCategory;
 import com.beadonor.beadonor.domain.InfoCategory;
 import com.beadonor.beadonor.domain.ItemCategory;
@@ -39,4 +40,10 @@ public class CategoriesRestController {
     public List<InfoCategory> getInfo(){
         return categoryServices.allInfoCategory();
     }    
+
+    @GetMapping("gift")
+    public List<GiftCategory> getGift(){
+        return categoryServices.allGiftCategory();
+    }    
+
 }

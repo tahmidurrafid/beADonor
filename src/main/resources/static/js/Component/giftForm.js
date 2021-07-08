@@ -2,64 +2,73 @@ components.giftForm = function(state){
     return /*html*/ `
     <div class = "item dpView expanded">
         <div class = "dp">
-            <img src = "/images/dp.png" />
+            <img src = "${state.me.dpLocation}" />
         </div>
         <div class = "details">
             <form>
                 <div class = "bar">
-                    <div class = "elem half">
-                        <select value = "Choose Item">
-                            <option>T-Shirt(500 points)</option>
-                        </select>                                
+                    <div class = "elem half group" data-group = "giftCategory">
+                        <select name = "id" value = "Choose Item">
+                            <option selected disabled>Select Category (Available points: ${state.me.points})</option>
+                            ${state.categories.map( (e) => 
+                                /*html*/`<option ${state.me.points < e.points ? 'disabled ' : ' '} value = "${e.id}">${e.name} (${e.points} points)</option>`
+                            ).join(" ")}
+                        </select>
                     </div>
                     <div class = "elem half">
-                        <select>
-                            <option value = "" disabled selected>Select Size</option>
-                            <option>XL</option>
-                            <option>XXL</option>
-                            <option>M</option>
-                            <option>L</option>
-                        </select>
+                        <input name = "size" type = "text" placeholder="Mention color, size etc."/>                                        
                     </div> 
                 </div>
 
-                <div class = "bar colap">
-                    <div class = "elem half">
-                        <h5>Shipping Address: </h5>
-                        <div class = "elem">
-                            <input type = "text title" placeholder="Name to contact"/>
+                <div class = "elem group" data-group = "contact" data-action = "auto_contact">
+                    <h5>Shipping Address: </h5>
+                    <div class = "bar">
+                        <div class = "elem half">
+                            <input name = "contactName" type = "text title" placeholder="Name to contact"/>
                         </div>
-                        <div class = "elem">
-                            <input type = "text" placeholder="Phone No"/>                                        
-                        </div>
-                        <div class = "elem">
-                            <select value = "District">
-                                <option>Dhaka</option>
-                            </select>
-                        </div>
-                        <div class = "elem">
-                            <select value = "Area">
-                                <option>Dhaka</option>
-                            </select>
-                        </div>
-                        <div class = "elem">
-                            <input type = "text" placeholder="Address"/>
+                        <div class = "elem half">
+                            <input name = "phoneNo" type = "text" placeholder="Phone No"/>                                    
                         </div>
                     </div>
-                    <div class = "elem half">
+                    <div class = "bar group" data-group = "area">
+                        <div class = "elem half">
+                            <select name = "name" class = "ignore" data-bind = "district">
+                                <option selected disabled class = "default">Choose District</option>
+                            </select>
+                        </div>
+                        <div class = "elem half">
+                            <select  name = "id" data-bind = "area">
+                                <option selected disabled class = "default">Choose Area</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class = "elem">
+                        <input type = "text" name = "address" placeholder="Address"/>
                     </div>
                 </div>
 
                 <div class = "bar colap">
                     <div class = "elem"></div>
                     <div class = "elem">
-                        <submit class = "button solid white small">
+                        <button type = "submit" class = "button solid white small" 
+                            onClick = "components.giftForm.methods.submit(this, event)">
                             Submit
-                        </a>
+                        </button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
     `;
+}
+
+components.giftForm.methods = {
+    submit : function(selector, e){
+        e.preventDefault();
+        var data = parseForm($(selector).closest("form"));
+        ajaxPost('gifts', data, (res) => {
+            console.log(res);
+        })
+    }
 }

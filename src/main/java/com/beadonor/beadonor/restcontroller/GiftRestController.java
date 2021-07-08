@@ -19,10 +19,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class GiftRestController {
     @Autowired
     private GiftService giftService;
-    @GetMapping("")
 
+    @GetMapping("")
     public List<Gift> findAll(){
         return giftService.findAll();
+    }
+
+
+    @GetMapping("user/gifts")
+    public Page<Gift> getAllUser(@RequestParam(value = "status", required = false) String status ,
+            @RequestParam(value = "pageNo", required = false) Integer pageNo, 
+            @RequestParam(value = "pageSize", required = false) Integer pageSize){
+        return giftService.findForUser(status, pageNo, pageSize);
     }
 
     @GetMapping("gifts")
@@ -32,9 +40,9 @@ public class GiftRestController {
         return giftService.findByFilteringAndPaging(status, pageNo, pageSize);
     }
 
-    @PostMapping("")
+    @PostMapping("gifts")
     public void save(@RequestBody Gift gift){
-        // Gift gift = new Gift();
-        giftService.save(gift);
+        System.out.println("Ashche");
+        giftService.saveGift(gift);
     }
 }

@@ -11,6 +11,14 @@ public class GiftCategory {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
+    private Integer points;
+
+    public Integer getPoints() {
+        return points;
+    }
+    public void setPoints(Integer points) {
+        this.points = points;
+    }
     public Integer getId() {
         return id;
     }

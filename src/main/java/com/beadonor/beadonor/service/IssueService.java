@@ -8,7 +8,6 @@ import java.util.Map;
 import com.beadonor.beadonor.Utils.LoggedIn;
 import com.beadonor.beadonor.Utils.Paging;
 import com.beadonor.beadonor.domain.Attachment;
-import com.beadonor.beadonor.domain.HelpRequest;
 import com.beadonor.beadonor.domain.Info;
 import com.beadonor.beadonor.domain.Issue;
 import com.beadonor.beadonor.domain.IssueStatus;

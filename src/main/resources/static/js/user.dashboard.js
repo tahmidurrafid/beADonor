@@ -183,23 +183,27 @@ function createGifts(state){
         pageSize : pageSize
     }
     if( state.state.toUpperCase() == "ALL"){
-        ajaxGet("user/info" , (res)=>{
+        ajaxGet("user/gifts" , (res)=>{
             console.log(res);
             for(var i = 0; i < res.content.length; i++){
                 res.content[i].hideStateChanger = true;
-                $(".topic-content .items").append( components.info( replaceNulls(res.content[i]) ) );
+                $(".topic-content .items").append( components.gifts( replaceNulls(res.content[i]) ) );
             }
             $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
                     current : parseInt(state.page, 10) }) );
         })
     }else if( state.state.toUpperCase() == "CREATE"){
-        ajaxGet("categories/info", (res)=>{
-            let formState = {
-                categories : res
-            };
-            $(".topic-content .items").append( components.giftForm( formState ) );
-            bindContactForms($(".topic-content"));            
-        });
+        ajaxGet("auth/me", (me)=> {
+            ajaxGet("categories/gift", (res)=>{
+                let formState = {
+                    categories : res,
+                    me : me
+                };
+                console.log(formState)
+                $(".topic-content .items").append( components.giftForm( formState ) );
+                bindContactForms($(".topic-content"));            
+            });
+        })
     }
 
 }
