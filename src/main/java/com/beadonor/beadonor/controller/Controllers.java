@@ -22,4 +22,15 @@ public class Controllers {
         return "auth/registration";
     }
 
+    @GetMapping("campaign")
+    public String campaign(){
+        return "campaign";
+    }
+
+    @GetMapping("campaign/help")
+    public String campaignHelp(){
+        return "campaignHelp";
+    }
+
+
 }

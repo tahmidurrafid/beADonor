@@ -3,6 +3,7 @@
 @import "_home";
 @import "_dashboard";
 @import "_auth";
+@import "_campaign";
 
 body{
     padding: none;
@@ -126,6 +127,12 @@ nav{
     }
 }
 
+.root-container{
+    width : 90%;
+    padding : 50px 0;
+    margin : auto;
+}
+
 .footer{
     margin-top : 20px;
     background-color: $black;
@@ -237,3 +244,4 @@ nav{
         text-align: center;
     }
 }
+
