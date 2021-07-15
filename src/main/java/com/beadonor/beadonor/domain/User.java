@@ -39,11 +39,23 @@ public class User implements Serializable{
 
     private Integer points;
 
+    private Boolean disabled;
+
     public Integer getPoints() {
         if(points == null){
             points = 0;
         }
         return points;
+    }
+    public Boolean getDisabled() {
+        if(disabled == null)
+            return false;
+        return disabled;
+    }
+    public void setDisabled(Boolean disabled) {
+        if(disabled == null)
+            disabled = false;
+        this.disabled = disabled;
     }
     public void setPoints(Integer points) {
         this.points = points;

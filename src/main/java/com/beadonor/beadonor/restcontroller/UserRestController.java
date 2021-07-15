@@ -1,8 +1,5 @@
 package com.beadonor.beadonor.restcontroller;
 
-
-import java.util.HashMap;
-
 import javax.validation.Valid;
 
 import com.beadonor.beadonor.domain.User;
