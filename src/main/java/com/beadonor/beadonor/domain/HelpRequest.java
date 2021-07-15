@@ -36,7 +36,16 @@ public class HelpRequest extends Issue{
         @AssociationOverride( name = "area", joinColumns = @JoinColumn( name = "g_area_id" ))
     })    
     private ContactPerson guardianContact;
+    private Double paid;
     
+    public Double getPaid() {
+        if(paid == null)
+            return 0.0;
+        return paid;
+    }
+    public void setPaid(Double paid) {
+        this.paid = paid;
+    }
     public String getTitle() {
         return title;
     }

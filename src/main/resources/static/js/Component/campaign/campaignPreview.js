@@ -1,12 +1,10 @@
-components.campaignPreview = function(state){
-    
+components.campaignPreview = function(state){    
     return /*html*/`
     <div class = "item">
         <div class = "item-wrapper">
-            <div class = "title">Campaign title goes here</div>
+            <div class = "title">${state.title} </div>
             <div class = "brief">
-                Here goes some brief for the campaign. ABCD Hi hello. It is good.
-                Here goes some brief for the campaign. ABCD Hi hello. It is good.
+                ${state.description}
             </div>
             <div class = "camp-progress">
                 <div class = "bar-line">
@@ -20,8 +18,8 @@ components.campaignPreview = function(state){
                     </div>
                 </div>
                 <div class = "target">
-                    Target: 25,24400 Taka 
-                </div>                                
+                    Target: ${state.amount} Taka 
+                </div>
             </div>
             <div class = "buttons">
                 <div class = "left">

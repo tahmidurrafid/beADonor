@@ -51,6 +51,7 @@ public class Issue implements Serializable{
     public IssueStatus getStatus() {
         return status;
     }
+    
     public void setStatus(IssueStatus status) {
         this.status = status;
     }

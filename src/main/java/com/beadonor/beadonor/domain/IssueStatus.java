@@ -20,7 +20,9 @@ public enum IssueStatus {
             list.add( IssueStatus.CAMPAIGN );            
         }else if(status.equalsIgnoreCase("ARCHIVED")){
             list.add( IssueStatus.FINISHED );
-            list.add( IssueStatus.REJECTED );            
+            list.add( IssueStatus.REJECTED );
+        }else if(status.equalsIgnoreCase("CAMPAIGN")){
+            list.add( IssueStatus.CAMPAIGN );
         }else if(status.equalsIgnoreCase("ALL")){
             list.add(IssueStatus.PENDING);
             list.add(IssueStatus.MARKED);
