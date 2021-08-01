@@ -10,5 +10,4 @@ public class Messages {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
 }

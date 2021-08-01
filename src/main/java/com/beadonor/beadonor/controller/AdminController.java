@@ -20,6 +20,7 @@ public class AdminController {
 
     AdminController(){
         redirects.put("moderators", "moderators/active/1");
+        redirects.put("gallery", "gallery/all/1");
     }
 
     @GetMapping("/{base}/{state}/{page}")

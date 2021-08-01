@@ -9,8 +9,9 @@ var components = [];
 $(document).ready(function(){
     ajaxGet("auth/me", (res)=> {
         me = res;
+        console.log(me, "MY INFO");
         var selector = $("nav .user-nav .settings");        
-        if(!me.name){
+        if(!me.email){
             $("nav .user-nav .log-reg").removeClass("hide-It");
         }else{
             selector.removeClass("hide-It");

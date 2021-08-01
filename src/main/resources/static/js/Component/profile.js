@@ -99,7 +99,7 @@ components.profile.methods = {
             for(let i = 0; i < res.length; i++){
                 bloodGroup.append(/*html*/`<option value = "${res[i].bloodgroup}">${res[i].bloodgroup}</option>`)
             }
-            if(data.bloodGroup.bloodgroup){
+            if(data.bloodGroup && data.bloodGroup.bloodgroup){
                 bloodGroup.val(data.bloodGroup.bloodgroup);
             }
         })
@@ -109,7 +109,7 @@ components.profile.methods = {
                 let item = res[i];
                 district.append(/*html*/ `<option value = "${item.name}">${item.name}</option>`);
             }
-            if(data.contact.area && data.contact.area.district){
+            if(data.contact && data.contact.area && data.contact.area.district){
                 district.val(data.contact.area.district.name)
                 if(data.contact.area.district.name){
                     ajaxGet("location/districts/" + data.contact.area.district.name + "/areas", (res) => {

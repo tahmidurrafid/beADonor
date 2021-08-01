@@ -212,7 +212,7 @@ async function createProfile(){
     ajaxGet('auth/me', (res) => {
         var profile = components.profile;
         var val = $(".topic-content .items").append( profile(res) )[0];
-        console.log('contatc' , res.contact.area)
+        // console.log('contatc' , res.contact.area)
         profile.methods.bindAll($(val), res);
     });
 }

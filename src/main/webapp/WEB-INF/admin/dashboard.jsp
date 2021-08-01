@@ -30,7 +30,7 @@
                             <span class = "icon"><img src = "/images/baricons/fi-rr-cursor-finger.svg"/></span>
                             <span>Moderators</span>
                         </a>
-                        <a href = "/user/payments">
+                        <a href = "/admin/gallery">
                             <span class = "icon"><img src = "/images/baricons/009-trust.svg"/></span>
                             <span>Manage Gallery</span>
                         </a>

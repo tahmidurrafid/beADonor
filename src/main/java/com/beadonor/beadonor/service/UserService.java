@@ -1,6 +1,8 @@
 package com.beadonor.beadonor.service;
 
 import java.io.File;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
@@ -33,6 +35,10 @@ public class UserService {
             return userRepository.findActiveModerators(pageable);
         }
         return userRepository.findDisabledModerators(pageable);        
+    }
+
+    public List<?> findUserByRank(){
+        return userRepository.findUserByRank();
     }
 
     public void changeState(Integer id){

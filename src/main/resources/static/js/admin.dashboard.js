@@ -13,6 +13,9 @@ importJs('/js/Component/infoForm.js')
 importJs('/js/Component/giftForm.js')
 
 importJs('/js/Component/admin/moderator.js')
+importJs('/js/Component/admin/addModerator.js')
+importJs('/js/Component/admin/gallery.js')
+importJs('/js/Component/admin/addMedia.js')
 
 
 /* 
@@ -29,17 +32,8 @@ class DashboardFactory{
     create = function(dashboard, state){
         if(dashboard == "moderators"){
             createModerators(state);
-
-        }else if(dashboard == "payments"){
-            createPayments(state);
-        }else if(dashboard == "items"){
-            createItems(state);
-        }else if(dashboard == "info"){
-            createInfo(state);
-        }else if(dashboard == "gifts"){
-            createGifts(state);
-        }else if(dashboard == "profile"){
-            createProfile(state);
+        }else if(dashboard == "gallery"){
+            createGallery(state);
         }
 
         $("#dashboard").find(".content .tab>a").each(function(index){
@@ -79,192 +73,48 @@ function createModerators(state){
                     current : parseInt(state.page, 10) }) );
         })
     }else if(state.state.toUpperCase() == "ADD"){
-        
+        console.log(components, "components")
+        $(".topic-content .items").append( components.addModerator({}) );
     }
-
-
-    // if( state.state.toUpperCase() == "ACTIVE"){
-    //     console.log("user/helpRequests?" + serializeBody(data));
-    //     ajaxGet("user/helpRequests?" + serializeBody(data) , (res)=>{
-    //         for(var i = 0; i < res.content.length; i++){
-    //             res.content[i].hideStateChanger = true;                
-    //             $(".topic-content .items").append( components.request( replaceNulls(res.content[i]) ) );
-    //         }
-    //         console.log(parseInt(res.totalPages, 10));
-    //         $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
-    //                 current : parseInt(state.page, 10) }) );
-    //     })
-    // }else if( state.state.toUpperCase() == "CREATE"){
-    //     ajaxGet("categories/helpRequest", (res)=>{
-    //         let formState = {
-    //             categories : res
-    //         };
-    //         $(".topic-content").append( components.requestForm( formState ) );
-    //         bindContactForms($(".topic-content"));
-    //     });
-    // }
 }
 
-function createRequests(state){
+function createGallery(state){
     var data = {
         status : state.state.toUpperCase(),
         pageNo : state.page,
         pageSize : pageSize
     }
-    console.log("state", state.state );
+    console.log("Gallery state", state.state );
 
+    // console.log(state);
     if( state.state.toUpperCase() == "ALL"){
-        console.log("user/helpRequests?" + serializeBody(data));
-        ajaxGet("user/helpRequests?" + serializeBody(data) , (res)=>{
+        console.log("admin/gallery?" + serializeBody(data))
+        ajaxGet("admin/gallery?" + serializeBody(data) , (res)=>{
             for(var i = 0; i < res.content.length; i++){
-                res.content[i].hideStateChanger = true;                
-                $(".topic-content .items").append( components.request( replaceNulls(res.content[i]) ) );
+                $(".topic-content .items").append( components.gallery( replaceNulls(res.content[i]) ) );
             }
             console.log(parseInt(res.totalPages, 10));
             $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
                     current : parseInt(state.page, 10) }) );
         })
-    }else if( state.state.toUpperCase() == "CREATE"){
-        ajaxGet("categories/helpRequest", (res)=>{
-            let formState = {
-                categories : res
-            };
-            $(".topic-content").append( components.requestForm( formState ) );
-            bindContactForms($(".topic-content"));
-        });
+
+    }else{
+        $(".topic-content .items").append( components.addMedia( {} ) );        
     }
+    // if( state.state.toUpperCase() == "ACTIVE" || state.state.toUpperCase() == "DISABLED" ){
+    //     console.log("admin/moderators?" + serializeBody(data));
+    //     ajaxGet("admin/moderators?" + serializeBody(data) , (res)=>{
+    //         for(var i = 0; i < res.content.length; i++){
+    //             res.content[i].hideStateChanger = true;
+    //             $(".topic-content .items").append( components.moderator( replaceNulls(res.content[i]) ) );
+    //         }
+    //         console.log(parseInt(res.totalPages, 10));
+    //         $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
+    //                 current : parseInt(state.page, 10) }) );
+    //     })
+    // }else if(state.state.toUpperCase() == "ADD"){
+    //     console.log(components, "components")
+    //     $(".topic-content .items").append( components.addModerator({}) );
+    // }
 }
 
-function createPayments(state){
-
-    var data = {
-        status : state.state.toUpperCase(),
-        pageNo : state.page,
-        pageSize : pageSize
-    }
-
-    if( state.state.toUpperCase() == "ALL"){
-        ajaxGet("user/payments?" + serializeBody(data) , (res)=>{
-            for(var i = 0; i < res.content.length; i++){
-                res.content[i].hideStateChanger = true;
-                $(".topic-content .items").append( components.payment( replaceNulls(res.content[i]) ) );
-            }
-            $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
-                    current : parseInt(state.page, 10) }) );
-        })
-    }else if( state.state.toUpperCase() == "CREATE"){
-        ajaxGet("categories/donation", (res)=>{
-            let formState = {
-                categories : res
-            };
-            $(".topic-content").append( components.paymentForm( formState ) );
-        });
-    }
-
-}
-
-
-function createItems(state){
-
-    var data = {
-        status : state.state.toUpperCase(),
-        pageNo : state.page,
-        pageSize : pageSize
-    }
-    if( state.state.toUpperCase() == "ALL"){
-        ajaxGet("user/items/" , (res)=>{
-            console.log(res);
-            for(var i = 0; i < res.content.length; i++){
-                res.content[i].hideStateChanger = true;
-                $(".topic-content .items").append( components.items( replaceNulls(res.content[i]) ) );
-            }
-            $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
-                    current : parseInt(state.page, 10) }) );
-        })
-    }else if( state.state.toUpperCase() == "CREATE"){
-        ajaxGet("categories/item", (res)=>{
-            let formState = {
-                categories : res
-            };
-            $(".topic-content").append( components.itemForm( formState ) );
-            bindContactForms($(".topic-content"));            
-        });
-    }
-
-
-}
-
-function createInfo(state){
-    var data = {
-        status : state.state.toUpperCase(),
-        pageNo : state.page,
-        pageSize : pageSize
-    }
-    if( state.state.toUpperCase() == "ALL"){
-        ajaxGet("user/info" , (res)=>{
-            console.log(res);
-            for(var i = 0; i < res.content.length; i++){
-                res.content[i].hideStateChanger = true;
-                $(".topic-content .items").append( components.info( replaceNulls(res.content[i]) ) );
-            }
-            $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
-                    current : parseInt(state.page, 10) }) );
-        })
-    }else if( state.state.toUpperCase() == "CREATE"){
-        ajaxGet("categories/info", (res)=>{
-            let formState = {
-                categories : res
-            };
-            $(".topic-content").append( components.infoForm( formState ) );
-            bindContactForms($(".topic-content"));            
-        });
-    }
-
-}
-
-function createGifts(state){
-    // ajaxGet("gifts/", (res)=>{
-    //     for(var i = 0; i < res.length; i++){
-    //         $(".topic-content .items").append( components.gifts( replaceNulls(res[i]) ) );
-    //     }
-    // })
-
-    var data = {
-        status : state.state.toUpperCase(),
-        pageNo : state.page,
-        pageSize : pageSize
-    }
-    if( state.state.toUpperCase() == "ALL"){
-        ajaxGet("user/gifts" , (res)=>{
-            console.log(res);
-            for(var i = 0; i < res.content.length; i++){
-                res.content[i].hideStateChanger = true;
-                $(".topic-content .items").append( components.gifts( replaceNulls(res.content[i]) ) );
-            }
-            $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 
-                    current : parseInt(state.page, 10) }) );
-        })
-    }else if( state.state.toUpperCase() == "CREATE"){
-        ajaxGet("auth/me", (me)=> {
-            ajaxGet("categories/gift", (res)=>{
-                let formState = {
-                    categories : res,
-                    me : me
-                };
-                console.log(formState)
-                $(".topic-content .items").append( components.giftForm( formState ) );
-                bindContactForms($(".topic-content"));            
-            });
-        })
-    }
-
-}
-
-async function createProfile(){
-    ajaxGet('auth/me', (res) => {
-        var profile = components.profile;
-        var val = $(".topic-content .items").append( profile(res) )[0];
-        console.log('contatc' , res.contact.area)
-        profile.methods.bindAll($(val), res);
-    });
-}

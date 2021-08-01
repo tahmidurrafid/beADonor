@@ -154,6 +154,21 @@ function bindCategories(parent){
     }
 }
 
+function getFileFormData(files, response){
+    var formData = new FormData(); 
+
+    for(var i = 0; i < files.length; i++){
+        for(var j = 0; j < files[i].files.length; j++){
+            formData.append("files", files[i].files[j]);
+        }
+    }
+
+    formData.append("request", new Blob([JSON.stringify(response)] , {
+        type : 'application/json'
+    }) );
+    return formData;
+}
+
 function submitForm(e, url){
     var form = $(e).closest("form");
     var response = dfs(form);

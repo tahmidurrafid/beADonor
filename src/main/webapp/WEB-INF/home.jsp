@@ -1,4 +1,4 @@
-<%@ page import="javafx.util.Pair,java.util.List,java.util.ArrayList" %>
+<%@ page import="java.util.List,java.util.ArrayList" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 
 <html>
@@ -39,26 +39,48 @@
 
                 <div class = "work-seq">
                     <div class = "items">
-                        <% 
-                        Pair<String, String> boxes[] = new Pair[]{
-                            new Pair<>("images/icons/006-advice.svg", "Ask For Help"),
-                            new Pair<>("images/icons/003-role model.svg", "Our Moderator Reviews"),
-                            new Pair<>("images/icons/009-trust.svg", "Somebody Helps"),
-                            new Pair<>("images/icons/042-team.svg", "Make The World Better") 
-                            };
-                        for(Pair<String, String> box : boxes){
-                        %>
+
                         <div class = "item">
                             <div class = "box">
                                 <div class ="icon">
-                                    <img src = "<% out.println(box.getKey()) ; %>"/>
+                                    <img src = "images/icons/006-advice.svg"/>
                                 </div>
                                 <div class = "text">
-                                    <% out.println(box.getValue()) ; %>
-                                </div>                                
+                                    Ask For Help
+                                </div>
                             </div>
                         </div>
-                        <% } %>
+                        <div class = "item">
+                            <div class = "box">
+                                <div class ="icon">
+                                    <img src = "images/icons/003-role model.svg"/>
+                                </div>
+                                <div class = "text">
+                                    Our Moderator Reviews
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "item">
+                            <div class = "box">
+                                <div class ="icon">
+                                    <img src = "images/icons/009-trust.svg"/>
+                                </div>
+                                <div class = "text">
+                                    Somebody Helps
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "item">
+                            <div class = "box">
+                                <div class ="icon">
+                                    <img src = "images/icons/042-team.svg"/>
+                                </div>
+                                <div class = "text">
+                                    Make The World Better
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
