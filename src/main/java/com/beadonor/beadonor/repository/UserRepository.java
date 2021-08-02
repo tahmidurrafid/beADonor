@@ -25,8 +25,11 @@ public interface UserRepository extends PagingAndSortingRepository<User, Integer
     "p.disabled = true")
     public Page<User> findDisabledModerators(Pageable pageable);
 
-    @Query("SELECT new Map(p as myid, SUM(u.amount) as total) from User p JOIN Payment u " + 
-    "ON(p.id = u.user.id) WHERE u.date > :timestamp GROUP BY p.id")
+    @Query("SELECT new Map(p as user, SUM(u.amount) as total, " +
+    "(SELECT COUNT(x) from Item x WHERE x.user.id = p.id AND x.date > :timestamp) as items) " + 
+    "from User p LEFT JOIN Payment u " + 
+    "ON(p.id = u.user.id) "+ 
+    "WHERE u.date > :timestamp GROUP BY p.id ")
     public List<?> findUserByRank(@Param("timestamp") Timestamp timestamp);
 
 }

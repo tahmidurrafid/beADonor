@@ -1,0 +1,59 @@
+.root-container.donors{
+    .items{
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        padding-top: 50px 0;
+        .item{
+            width: 25%;
+
+            box-sizing: border-box;
+            padding: 10px;
+            .wrap{
+                box-sizing: border-box;
+                padding: 10px;                
+                border: solid 1px $lightBorder;
+                border-radius: 20px;
+                .dp{
+                    margin: auto;
+                    width: 30%;
+                    border-radius: 100%;
+                    overflow: hidden;                    
+                    img{
+                        width: 100%;
+                        display: block;
+                    }
+                    padding-bottom: 20px;
+                }
+                .details{
+                    text-align: center;
+                    .name{
+                        font-size: $font20;
+                        font-weight: $semibold;
+                    }
+                    .measure{
+                        box-sizing: border-box;
+                        padding: 10px 20px;
+                        display: flex;
+                        .amount{
+                            box-sizing: border-box;
+                            border-right: solid 1px $lightBorder;
+                            width: 50%;
+                            &>*{
+                                display: block;
+                            }
+                            .count{
+                                color: $grey2;
+                            }
+                            .caption{
+                                font-size: $font14;
+                                font-weight: $semibold;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
