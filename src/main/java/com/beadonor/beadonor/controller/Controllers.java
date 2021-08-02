@@ -35,6 +35,11 @@ public class Controllers {
         return "gallery";
     }
 
+    @GetMapping("donors")
+    public String donors(){
+        return "donors";
+    }
+
     @GetMapping("campaign/help")
     public String campaignHelp(){
         return "campaignHelp";

@@ -1,5 +1,6 @@
 package com.beadonor.beadonor.repository;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import com.beadonor.beadonor.domain.User;
@@ -8,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 
 public interface UserRepository extends PagingAndSortingRepository<User, Integer>{
 
@@ -24,7 +26,7 @@ public interface UserRepository extends PagingAndSortingRepository<User, Integer
     public Page<User> findDisabledModerators(Pageable pageable);
 
     @Query("SELECT new Map(p as myid, SUM(u.amount) as total) from User p JOIN Payment u " + 
-    "ON(p.id = u.user.id) GROUP BY p.id HAVING p.id = 2")
-    public List<?> findUserByRank();
+    "ON(p.id = u.user.id) WHERE u.date > :timestamp GROUP BY p.id")
+    public List<?> findUserByRank(@Param("timestamp") Timestamp timestamp);
 
 }

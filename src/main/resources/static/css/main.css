@@ -188,6 +188,17 @@ div.para.small {
   left: -35px;
 }
 
+.topic-title span.sub {
+  display: block;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  color: #848484;
+}
+
+.topic-title span.sub::before {
+  display: none;
+}
+
 .section {
   padding: 70px 0;
 }

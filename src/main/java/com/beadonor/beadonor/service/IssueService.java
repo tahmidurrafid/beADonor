@@ -49,8 +49,7 @@ public class IssueService<T extends Issue> {
             return getRepository().findForMarked(user.getId() , pageable);
         }
         List<IssueStatus> list = IssueStatus.getList(status);
-        // System.out.println(user.getName());
-        // return issueAbstractRepository.findByStatusIn(list , pageable);
+
         return getRepository().findByStatusIn(list , pageable);
     }
 

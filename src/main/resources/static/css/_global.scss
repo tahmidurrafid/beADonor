@@ -152,6 +152,15 @@ div.para.small{
             left : -35px;
         }
     }
+    span.sub{
+        display: block;
+        font-size: $font14;
+        font-family: $font1;
+        color: $grey2;
+        &::before{
+            display: none;
+        }
+    }
 }
 
 @mixin container{

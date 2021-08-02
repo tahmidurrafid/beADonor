@@ -1,8 +1,8 @@
 package com.beadonor.beadonor.service;
 
 import java.io.File;
+import java.sql.Timestamp;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
@@ -26,7 +26,7 @@ public class UserService {
     HttpServletRequest request;
 
     public User getLoggedinUser(){
-        User user = userRepository.findUserByEmail( LoggedIn.getEmail() ) ;
+        User user = userRepository.findUserByEmail( LoggedIn.getEmail() );
         return user;
     }
     public Page<User> getModerators(String status, Integer pageNo, Integer pageSize){
@@ -38,7 +38,9 @@ public class UserService {
     }
 
     public List<?> findUserByRank(){
-        return userRepository.findUserByRank();
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis() - 30*24*60*60*(long)1000);
+        System.out.println(timestamp);
+        return userRepository.findUserByRank(timestamp);
     }
 
     public void changeState(Integer id){
@@ -61,7 +63,6 @@ public class UserService {
         original.setBirthDate(user.getBirthDate());
         original.setBloodGroup(user.getBloodGroup());
         original.setContact(user.getContact());
-        // System.out.println(user.getEmail());
         userRepository.save(original);
     }
 
