@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/v1/static/")
+@RequestMapping("api/v1/static")
 public class StaticRestController {
     @Autowired
     BloodGroupService bloodGroupService;
     @Autowired UserService userService;
 
-    @GetMapping("/bloodGroups/")
+    @GetMapping("bloodGroups")
     public List<BloodGroup> bloodGroups(){
         return bloodGroupService.findAll();
     }

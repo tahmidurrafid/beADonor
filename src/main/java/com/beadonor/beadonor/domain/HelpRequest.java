@@ -21,7 +21,7 @@ public class HelpRequest extends Issue{
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    private Double amount;
+    private Double amount = 0.0;
 
     @Embedded
     private ContactPerson contact;
@@ -65,9 +65,15 @@ public class HelpRequest extends Issue{
         this.description = description;
     }
     public Double getAmount() {
+        if(amount == null){
+            return 0.0;
+        }
         return amount;
     }
     public void setAmount(Double amount) {
+        if(amount == null){
+            this.amount = 0.0;
+        }
         this.amount = amount;
     }
     public ContactPerson getContact() {
@@ -87,8 +93,5 @@ public class HelpRequest extends Issue{
         return super.toString() + " = = " + "HelpRequest [amount=" + amount + ", contact=" + contact + ", description=" + description
                 + ", guardianContact=" + guardianContact + ", helpCategory=" + helpCategory + ", title=" + title + "]";
     }
-
-
-    
 
 }

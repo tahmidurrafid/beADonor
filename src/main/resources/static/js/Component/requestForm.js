@@ -1,6 +1,6 @@
 components.requestForm = function(state){
     // localhost:8080/api/v1/categories/helpRequest
-
+    console.log(state);
     return /*html*/ `
     <div class = "items">
         <div class = "item dpView expanded">
@@ -13,15 +13,23 @@ components.requestForm = function(state){
                     <input class = "input title" name = "title" type = "text" placeholder="Your Title goes Here"/>
                     <div class = "bar">
                         <div class = "elem half group" data-group = "helpCategory">
-                            <select name = "id" data-bind = "helpCategory">
+                            <select name = "id" data-bind = "helpCategory" 
+                            onChange = "components.requestForm.methods.categoryChange(this, event)">
                                 <option disabled selected class = "default">Choose Category</option>
                                 ${state.categories.map(
                                     item => `<option value = "${item.id}">${item.name}</option>`
                                 ).join(" ")}
                             </select>
                         </div>
-                        <div class = "elem half" >
+                        <div class = "elem half amount" >
                             <input type = "text" name = "amount" placeholder = "Amount(if need any)"/>
+                        </div>
+                        <div class = "elem half bloodGroup group" data-group="bloodGroup" style = "display : none">
+                            <select name = "bloodgroup">
+                                ${state.groups.map( e => {
+                                    return /*html*/`<option value = "${e.bloodgroup}">${e.bloodgroup}</option>`
+                                }).join(" ")}
+                            </select>
                         </div>
                     </div>
                     <div class = "elem">
@@ -94,7 +102,8 @@ components.requestForm = function(state){
                         <div class = "elem"></div>
                         <div class = "elem">
                             <input type = "submit" 
-                            value = "submit" class = "button solid white small" onclick="submitForm(this, 'user/helpRequests')" />
+                            value = "submit" class = "button solid white small" 
+                            onclick="components.requestForm.methods.submit(this, event)" />
                         </div>
                     </div>
                 </form>
@@ -102,7 +111,40 @@ components.requestForm = function(state){
             </div>
         </div>
     </div>
-
     `
+}
 
+components.requestForm.methods = {
+    submit : function(me, event){
+        let selector = $(me).closest("form");
+        event.preventDefault();
+        let data = parseForm(selector);
+        console.log(data);
+
+        let formData = getFileFormData(selector.find(".attachments input[type='file']"), data);
+        if(selector.hasClass("bloodDonation")){
+            ajaxPostUpload('bloodDonation', formData,() => {
+                console.log("Upload successful");
+            })
+        }else{
+            ajaxPostUpload('user/helpRequests', formData,() => {
+                console.log("Upload successful");
+            })
+        }
+    },
+    categoryChange: function(me, event){
+        let id = $(me).val();
+        let value = $(me).find("option[value=" + id + "]").html();
+        let selector = $(me).closest("form");
+        let form = $(me).closest("form");
+        if(value.toUpperCase().includes("BLOOD")){
+            selector.find(".amount").hide();
+            selector.find(".bloodGroup").show();
+            form.addClass("bloodDonation");
+        }else{
+            selector.find(".amount").show();
+            selector.find(".bloodGroup").hide();
+            form.removeClass("bloodDonation");            
+        }
+    }
 }

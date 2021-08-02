@@ -40,6 +40,11 @@ public class Controllers {
         return "donors";
     }
 
+    @GetMapping("bloodDonate")
+    public String bloodDonate(){
+        return "bloodDonate";
+    }
+
     @GetMapping("campaign/help")
     public String campaignHelp(){
         return "campaignHelp";

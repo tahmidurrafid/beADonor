@@ -1,6 +1,6 @@
 components.request = function(state){
     return /*html*/`
-    <div class = "item dpView collapsed">
+    <div class = "item dpView collapsed" data-storage = "${state.id}">
         <div class = "dp">
             <img src = "${state.user? state.user.dpLocation : ''}" />
         </div>
@@ -85,6 +85,27 @@ components.request = function(state){
                 `).join("") }
             </div>
             <div class = "bar colap">
+                <div class = "elem " style = "display : flex"> 
+                    <h5>
+                        ${state.status == "PENDING" ? '' : 
+                            state.status + " by " + state.markedByUser.name + " (" +
+                            state.markedByUser.contact.phoneNo + ") "
+                        }
+                    </h5>
+                    ${
+                        state.helpCategory && state.helpCategory.name.toUpperCase().includes("BLOOD") 
+                        && state.status != "PENDING"
+                        ?
+                        /*html*/`<div class = "button solid small white"
+                        onClick = "components.request.methods.cancel(this, event)">
+                            Cancel
+                        </div>` :
+                        ''
+                    }
+
+                </div>
+            </div>
+            <div class = "bar colap">
                 <div class = "elem flex">
                     ${state.hideStateChanger? `` : /*html*/`
                         <h5>Choose Action</h5>
@@ -103,3 +124,15 @@ components.request = function(state){
     </div>
     `
 };
+
+components.request.methods = {
+    cancel : function(me, event){
+        let id = $(me).closest(".item").attr("data-storage");
+        ajaxPut('bloodDonation/unmark/' + id, {} , (res) => {
+            console.log("DONE", res);            
+            $(me).closest(".bar").hide();
+        }, (res) => {
+            console.log("error", res);
+        })
+    }
+}

@@ -77,8 +77,12 @@ function createRequests(state){
             let formState = {
                 categories : res
             };
-            $(".topic-content").append( components.requestForm( formState ) );
-            bindContactForms($(".topic-content"));
+            ajaxGet("static/bloodGroups", (blood)=>{
+                console.log(blood, "blood");
+                formState.groups = blood;
+                $(".topic-content").append( components.requestForm( formState ) );
+                bindContactForms($(".topic-content"));                
+            })
         });
     }
 }
@@ -171,11 +175,6 @@ function createInfo(state){
 }
 
 function createGifts(state){
-    // ajaxGet("gifts/", (res)=>{
-    //     for(var i = 0; i < res.length; i++){
-    //         $(".topic-content .items").append( components.gifts( replaceNulls(res[i]) ) );
-    //     }
-    // })
 
     var data = {
         status : state.state.toUpperCase(),

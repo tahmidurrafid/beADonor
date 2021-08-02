@@ -50,8 +50,8 @@ components.paymentForm = function(state){
 
                     <div class = "bar colap">
                         <div class = "elem"></div>
-                        <div class = "elem">
-                            <input type = "submit" class = "button solid white small" value = "submit" onclick="submitForm(this, 'user/payment')" />
+                        <div class = "elem ">
+                            <input type = "submit" class = "ignore button solid white small" value = "submit" onclick="submitForm(this, 'user/payment')" />
                         </div>
                     </div>
                 </form>
