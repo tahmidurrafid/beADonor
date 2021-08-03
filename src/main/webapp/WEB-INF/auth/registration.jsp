@@ -65,15 +65,20 @@
                             </div>                            
                         </div>
 
-                        <div class = "elem left">
+                        <!-- <div class = "elem left">
                             <input type = "checkbox" name = "donate" />
                             <label for = "donate">I am ready to doante blood</label>
+                        </div> -->
+                        <div class = "bar">
+                            <div class = "elem error">
+                            </div>
                         </div>
                         <div class = "line">
                             <div class = "elem half">
                             </div>
                             <div class = "elem half">
-                                <submit class = "button solid small white" onclick="submitForm(this, 'users/')">
+                                <submit class = "button solid small white" 
+                                onclick="submitForm(this, 'users/', ()=>{window.location.href = '/auth/login'})">
                                     Submit</submit>
                             </div>
                         </div>

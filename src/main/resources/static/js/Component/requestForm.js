@@ -98,8 +98,10 @@ components.requestForm = function(state){
                             <input type = "file" value="Browse your file"/>
                         </div>
                     </div>
-                    <div class = "bar colap">
-                        <div class = "elem"></div>
+                    <div class = "bar colap to-right">
+                        <div class = "elem">
+                            <div class = "loader" style = "display : none"></div>                        
+                        </div>
                         <div class = "elem">
                             <input type = "submit" 
                             value = "submit" class = "button solid white small" 
@@ -121,14 +123,20 @@ components.requestForm.methods = {
         let data = parseForm(selector);
         console.log(data);
 
+        selector.find(".loader").show(300);
+
         let formData = getFileFormData(selector.find(".attachments input[type='file']"), data);
         if(selector.hasClass("bloodDonation")){
             ajaxPostUpload('bloodDonation', formData,() => {
+                selector.find(".loader").hide(300);
                 console.log("Upload successful");
+                window.location.href = "/user/requests";
             })
         }else{
             ajaxPostUpload('user/helpRequests', formData,() => {
+                selector.find(".loader").hide(300);                
                 console.log("Upload successful");
+                window.location.href = "/user/requests";                
             })
         }
     },

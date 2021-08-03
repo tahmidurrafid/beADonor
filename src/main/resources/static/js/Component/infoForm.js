@@ -68,7 +68,7 @@ components.infoForm = function(state){
                         <div class = "elem"></div>
                         <div class = "elem">
                             <input type = "submit" class = "button solid white small" value = "Submit" 
-                            onclick="submitForm(this, 'user/info')" />
+                            onclick="submitForm(this, 'user/info', ()=> {window.location.href = '/user/info'})" />
                         </div>
                     </div>
                 </form>

@@ -109,7 +109,10 @@ function createPayments(state){
             let formState = {
                 categories : res
             };
-            $(".topic-content").append( components.paymentForm( formState ) );
+            ajaxGet("categories/paymentMethod", (methods) => {
+                formState.methods = methods;
+                $(".topic-content").append( components.paymentForm( formState ) );                
+            })
         });
     }
 

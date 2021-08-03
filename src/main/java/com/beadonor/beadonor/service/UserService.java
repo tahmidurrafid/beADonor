@@ -3,10 +3,12 @@ package com.beadonor.beadonor.service;
 import java.io.File;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
+import com.beadonor.beadonor.Exception.ApiRequestException;
 import com.beadonor.beadonor.Utils.LoggedIn;
 import com.beadonor.beadonor.Utils.Paging;
 import com.beadonor.beadonor.domain.User;
@@ -51,7 +53,27 @@ public class UserService {
     }
 
     @Transactional
-    public void save(User user) {  
+    public void save(User user) { 
+        String error = "";
+
+        Pattern EMAIL_REGEX = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", Pattern.CASE_INSENSITIVE);
+        
+        User exisiting = userRepository.findUserByEmail(user.getEmail());
+        if(exisiting != null){
+            error += "Email already exists |";    
+        }
+
+        if(user.getEmail() == null || user.getEmail() == "" || 
+            ! EMAIL_REGEX.matcher(user.getEmail()).matches()){
+            error += "Invalid Email | ";
+        }
+        if(user.getPassword() == null || user.getPassword() == ""){
+            error += "Password cannot be empty |";
+        }
+        if(error.length() > 0){
+            System.out.println("Error thrown");
+            throw new ApiRequestException(error);
+        }
         userRepository.save(user);
     }
 

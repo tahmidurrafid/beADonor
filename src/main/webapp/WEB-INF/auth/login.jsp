@@ -4,6 +4,16 @@
     <head>
         <title>Be A donor - Login</title>
         <%@ include file="../meta.jsp" %>
+
+        <script type = "text/javascript">
+            $(document).ready(()=>{
+                if(window.location.href.endsWith("error")){
+                    $(".error").show();
+                }else{
+                    $(".error").hide();                
+                }
+            })
+        </script>
     </head>
 
     <body>
@@ -17,6 +27,12 @@
                     <form method = "POST">
                         <input type = "text" name = "username" placeholder="Enter Email"/>
                         <input type = "password" name = "password" placeholder="Your password"/>
+
+                        <div class = "bar">
+                            <div class = "elem error">
+                                Email or password didn't match
+                            </div>
+                        </div>
 
                         <div class = "line">
                             <div class = "elem half">

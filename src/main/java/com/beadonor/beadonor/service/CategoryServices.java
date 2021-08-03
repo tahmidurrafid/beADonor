@@ -7,11 +7,13 @@ import com.beadonor.beadonor.domain.GiftCategory;
 import com.beadonor.beadonor.domain.HelpCategory;
 import com.beadonor.beadonor.domain.InfoCategory;
 import com.beadonor.beadonor.domain.ItemCategory;
+import com.beadonor.beadonor.domain.PaymentMethod;
 import com.beadonor.beadonor.repository.DonationCategoryRepository;
 import com.beadonor.beadonor.repository.GiftCategoryRepository;
 import com.beadonor.beadonor.repository.HelpCategoryRepository;
 import com.beadonor.beadonor.repository.InfoCategoryRepository;
 import com.beadonor.beadonor.repository.ItemCategoryRepository;
+import com.beadonor.beadonor.repository.PaymentMethodRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +35,8 @@ public class CategoryServices {
     @Autowired
     GiftCategoryRepository giftCategoryRepository;
 
+    @Autowired 
+    PaymentMethodRepository paymentMethodRepository;
 
     public List<HelpCategory> allHelpCategories(){
         return helpCategoryRepository.findAll();
@@ -52,5 +56,9 @@ public class CategoryServices {
 
     public List<GiftCategory> allGiftCategory(){
         return giftCategoryRepository.findAll();
+    }
+
+    public List<PaymentMethod> allPaymentMethods(){
+        return paymentMethodRepository.findAll();
     }
 }

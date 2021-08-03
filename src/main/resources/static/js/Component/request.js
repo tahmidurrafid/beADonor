@@ -1,4 +1,5 @@
 components.request = function(state){
+    console.log(state);    
     return /*html*/`
     <div class = "item dpView collapsed" data-storage = "${state.id}">
         <div class = "dp">
@@ -74,12 +75,12 @@ components.request = function(state){
             <div class = "elem colap">
                 <h5>Attachments :</h5>
                 ${state.attachments.map( (attc) => /*html*/`
-                <a class = "attach" href = "#">
+                <a class = "attach" href = "${attc.location}">
                     <div class = "download">
                         <img src = "/images/fi-rr-cloud-download.svg" />
                     </div>
                     <div class = "name">
-                        ${attc.location}
+                        ${attc.name}
                     </div>
                 </a>
                 `).join("") }

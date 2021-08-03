@@ -7,6 +7,7 @@ import com.beadonor.beadonor.domain.GiftCategory;
 import com.beadonor.beadonor.domain.HelpCategory;
 import com.beadonor.beadonor.domain.InfoCategory;
 import com.beadonor.beadonor.domain.ItemCategory;
+import com.beadonor.beadonor.domain.PaymentMethod;
 import com.beadonor.beadonor.service.CategoryServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,10 @@ public class CategoriesRestController {
     public List<GiftCategory> getGift(){
         return categoryServices.allGiftCategory();
     }    
+
+    @GetMapping("paymentMethod")
+    public List<PaymentMethod> getPaymentMethods(){
+        return categoryServices.allPaymentMethods();
+    }
 
 }

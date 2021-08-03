@@ -20,6 +20,7 @@ import com.beadonor.beadonor.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -40,7 +41,7 @@ public class IssueService<T extends Issue> {
     }
 
     public Page<T> findByFilteringAndPaging(String status, Integer pageNo, Integer pageSize){
-        Pageable pageable = Paging.getPageable(pageNo, pageSize);
+        Pageable pageable = Paging.getPageable(pageNo, pageSize, Sort.by("date").descending());
         User user = getLoggedinUser();
         if(status == null){
             status = "ALL";
@@ -54,7 +55,7 @@ public class IssueService<T extends Issue> {
     }
 
     public Page<T> findForUser(String status, Integer pageNo, Integer pageSize){
-        Pageable pageable = Paging.getPageable(pageNo, pageSize);
+        Pageable pageable = Paging.getPageable(pageNo, pageSize, Sort.by("date").descending());
         User user = getLoggedinUser();
         if(status == null){
             status = "ALL";

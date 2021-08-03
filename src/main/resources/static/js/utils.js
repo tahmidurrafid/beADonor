@@ -16,14 +16,15 @@ function serializeBody(data){
     return body;
 }
 
-function ajaxPost(url, data, success){
+function ajaxPost(url, data, success, err){
     $.ajax({
         url: apiRoot + url, 
         type: 'POST',        
         data: JSON.stringify(data),
         contentType : 'application/json',
         dataType : 'json',
-        success: success
+        success: success,
+        error : err
     });
 }
 
@@ -169,14 +170,27 @@ function getFileFormData(files, response){
     return formData;
 }
 
-function submitForm(e, url){
+function submitForm(e, url, success, err){
     var form = $(e).closest("form");
     var response = dfs(form);
 
     form.submit(function(e){
         return false;
     })
-
+    if(!success){
+        success = function(){
+            console.log("success");
+        }
+    }
+    if(!err){
+        err = function(data){
+            console.log("error");
+            if(data && data.responseJSON && data.responseJSON.message){
+                $(".error").html(data.responseJSON.message.replaceAll("|", "<br/>"));
+                $(".error").show();
+            }
+        }
+    }
     console.log(JSON.stringify(response));
     console.log(response);
 
@@ -196,11 +210,9 @@ function submitForm(e, url){
     }) );
 
     if(fileUpload){
-        ajaxPostUpload(url, formData, 
-            ()=>{console.log("upload hosie")} ,
-            ()=>{console.log("upload hoy nai")} );
+        ajaxPostUpload(url, formData, success, err );
     }else{
-        ajaxPost(url, response, () => {console.log("Post Hoise")});
+        ajaxPost(url, response, success, err);
     }
 
     function dfs(form){

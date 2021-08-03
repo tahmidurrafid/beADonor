@@ -24,8 +24,9 @@ public class Controllers {
         return "auth/registration";
     }
 
-    @GetMapping("campaign")
-    public String campaign(){
+    @GetMapping("campaign/{page}")
+    public String campaign(ModelMap model, @PathVariable String page){
+        model.put("pageNo", page);        
         return "campaign";
     }
 

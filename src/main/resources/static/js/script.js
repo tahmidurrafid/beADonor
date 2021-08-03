@@ -16,7 +16,14 @@ $(document).ready(function(){
         }else{
             selector.removeClass("hide-It");
             selector.find(".dp img").attr("src", res.dpLocation);
-            $("nav .user-nav .log-reg").addClass("hide-It");            
+            $("nav .user-nav .log-reg").addClass("hide-It");
+            if(res.userType){
+                if(res.userType.toUpperCase() == "MODERATOR"){
+                    selector.find(".for-moderator").show();
+                }else if(res.userType.toUpperCase() == "USER"){
+                    selector.find(".for-user").show();                    
+                }
+            }
         }
     });
 

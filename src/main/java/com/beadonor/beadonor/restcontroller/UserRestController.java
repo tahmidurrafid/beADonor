@@ -1,7 +1,10 @@
 package com.beadonor.beadonor.restcontroller;
 
+import java.util.Map;
+
 import javax.validation.Valid;
 
+import com.beadonor.beadonor.Utils.StaticResponse;
 import com.beadonor.beadonor.domain.User;
 import com.beadonor.beadonor.service.UserService;
 
@@ -23,9 +26,10 @@ public class UserRestController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/")
-    public void save(@Valid @RequestBody User user){
+    @PostMapping("")
+    public Map<String, Object> save(@Valid @RequestBody User user){
         userService.save(user);
+        return StaticResponse.getSuccess();
     }
 
     @PutMapping("/")
@@ -40,7 +44,6 @@ public class UserRestController {
 
     @RequestMapping(value = "profilePhoto", method = RequestMethod.POST, consumes = {"multipart/form-data"})
     public User uploadPhoto( @RequestParam(name =  "file", required = false) MultipartFile file){
-        // return new User();
         return userService.saveProfilePhoto(file);
     }
 }

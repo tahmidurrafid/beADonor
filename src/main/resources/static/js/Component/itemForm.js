@@ -67,7 +67,8 @@ components.itemForm = function(state){
                     <div class = "bar colap">
                         <div class = "elem"></div>
                         <div class = "elem">
-                            <input type = "submit" class = "button solid white small" value = "Submit" onclick="submitForm(this, 'user/items')" />
+                            <input type = "submit" class = "button solid white small" value = "Submit" 
+                            onclick="submitForm(this, 'user/items', ()=> {window.location.href = '/user/items'})" />
                         </div>
                     </div>
                 </form>

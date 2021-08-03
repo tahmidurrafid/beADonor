@@ -10,7 +10,7 @@
             
             $(document).ready(function(){
                 var data = {
-                    pageNo : 1,
+                    pageNo : ${pageNo},
                     pageSize : 10
                 }
                 ajaxGet("campaign?" + serializeBody(data), (res) => {

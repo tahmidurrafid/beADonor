@@ -15,7 +15,7 @@ components.stateChanger = function(state){
             onClick = "components.stateChanger.methods.changed(this, event)">
                 Go
             </a>
-            <div class = "loader" style = "display : none"></div>        
+            <div class = "loader" style = "display : none"></div>
         </div>
         <div class = "marked" style = "display : none">
             <div class = "notify">Alerady Marked by other user. Are you sure?</div>

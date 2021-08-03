@@ -218,7 +218,45 @@ div.para.small{
     }
 }
 
+
+input, select, textarea, select{
+    border: solid 1px $lightBorder;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    width: 100%;
+    transition: border .5s;
+    border-radius: 10px;
+    &:focus{
+        border-color: $orange4;
+        outline: none;
+    }
+    margin: 10px 0;
+    font-size: $font14;
+}
+select{
+    border-radius: 20px;        
+    color: $grey2;
+    option{
+        padding: 10px 0;
+        line-height: 100px;
+    }
+}
+
+
+
 form{
+    .error{
+        width: 100%;
+        color: red;
+        border: solid 1px red;
+        border-radius: 5px;
+        line-height: 40px;
+        text-align: left;
+        padding : 0 10px;
+        display: none;
+        font-size: $font14;
+        font-weight: $medium;   
+    }
 
     .line{
         width: 100%;
@@ -257,20 +295,6 @@ form{
     input.title{
         font-size: $font18;
         font-weight: $medium;
-    }
-    input, select, textarea{
-        border: solid 1px $lightBorder;
-        box-sizing: border-box;
-        padding: 10px 20px;
-        width: 100%;
-        transition: border .5s;
-        border-radius: 10px;
-        &:focus{
-            border-color: $orange4;
-            outline: none;
-        }
-        margin: 10px 0;
-        font-size: $font14;
     }
 }
 

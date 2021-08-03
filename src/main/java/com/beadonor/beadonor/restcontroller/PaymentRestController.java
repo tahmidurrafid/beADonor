@@ -1,5 +1,8 @@
 package com.beadonor.beadonor.restcontroller;
 
+import java.util.Map;
+
+import com.beadonor.beadonor.Utils.StaticResponse;
 import com.beadonor.beadonor.domain.Payment;
 import com.beadonor.beadonor.service.PaymentService;
 
@@ -18,11 +21,6 @@ public class PaymentRestController {
     @Autowired
     PaymentService paymentService;
 
-    // @GetMapping("payments")
-    // public List<Payment> findAll(){
-    //     return paymentService.findAll();
-    // }
-
     @GetMapping("payments")
     public Page<Payment> getAll(@RequestParam(value = "status", required = false) String status ,
             @RequestParam(value = "pageNo", required = false) Integer pageNo, 
@@ -38,7 +36,8 @@ public class PaymentRestController {
     }
 
     @PostMapping("user/payment")
-    public void save(@RequestBody Payment payment){
+    public Map<String, Object> save(@RequestBody Payment payment){
         paymentService.save(payment);
+        return StaticResponse.getSuccess();
     }
 }

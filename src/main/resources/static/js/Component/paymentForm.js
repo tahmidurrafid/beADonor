@@ -24,34 +24,39 @@ components.paymentForm = function(state){
                         </div>
                     </div>
 
+                    
                     <div class = "bar colap">
                         <div class = "elem half">
                             <div class = "elem">
-                                <input type = "text" name = "amount" placeholder="Amount (Taka)" value = "0"/>
+                                <input type = "text" name = "amount" placeholder="Amount (Taka)" />
                             </div>
                             <div class = "elem group" data-group = "method">
                                 <select value = "Payment Method" name = "name">
-                                    <option value = "bKash">bKash</option>
-                                    <option value = "Nagad">Nagad</option>
-                                    <option value = "SSLCommerz">SSLCommerz</option>
+                                    ${
+                                        state.methods.map( e => {
+                                            return /*html*/`<option value = "${e.name}">${e.name}</option>`
+                                        }).join(" ")
+                                    }
                                 </select>
+                            </div>
+                        </div>
+                        <div class = "elem half">
+                            <div class = "elem">
+                                <input type = "text" name = "reference" placeholder = "Reference"/>
                             </div>
                             <div class = "elem">
                                 <input type = "text" name = "transactionId" placeholder="TransactionID" />
                             </div>
                         </div>
-                        <div class = "elem half">
-                            <textarea placeholder="Any Message to Reviewer?"></textarea>
-                            <div class = "elem">
-                                <input type = "text" name = "reference" placeholder = "Reference"/>
-                            </div>
-                        </div>
                     </div>
-
+                    <div class = "bar">
+                        <div class = "elem error"></div>
+                    </div>
                     <div class = "bar colap">
                         <div class = "elem"></div>
                         <div class = "elem ">
-                            <input type = "submit" class = "ignore button solid white small" value = "submit" onclick="submitForm(this, 'user/payment')" />
+                            <input type = "submit" class = "ignore button solid white small" value = "submit" 
+                            onclick="submitForm(this, 'user/payment', ()=> {window.location.href = '/user/payments'})" />
                         </div>
                     </div>
                 </form>
