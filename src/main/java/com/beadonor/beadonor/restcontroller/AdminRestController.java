@@ -1,5 +1,6 @@
 package com.beadonor.beadonor.restcontroller;
 
+import com.beadonor.beadonor.Exception.ApiRequestException;
 import com.beadonor.beadonor.domain.GalleryMedia;
 import com.beadonor.beadonor.domain.User;
 import com.beadonor.beadonor.domain.UserRole;
@@ -38,6 +39,16 @@ public class AdminRestController {
 
     @RequestMapping(value = "moderator", method = RequestMethod.POST)
     public void addModerator( @RequestBody User user ){
+        String exception = "";
+        if(user.getEmail() == null || user.getEmail() == ""){
+            exception += "Email cannot be null | ";
+        }
+        if(user.getPassword() == null || user.getPassword() == ""){
+            exception += "Password cannot be null";            
+        }
+        if(exception.length() > 0){
+            throw new ApiRequestException(exception);
+        }
         user.setUserType(UserRole.MODERATOR);
         userService.save(user);
     }

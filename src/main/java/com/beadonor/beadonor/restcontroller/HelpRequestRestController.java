@@ -1,5 +1,6 @@
 package com.beadonor.beadonor.restcontroller;
 
+import com.beadonor.beadonor.Exception.ApiRequestException;
 import com.beadonor.beadonor.domain.HelpRequest;
 import com.beadonor.beadonor.service.HelpRequestService;
 import com.beadonor.beadonor.service.UserService;
@@ -39,6 +40,7 @@ public class HelpRequestRestController {
     @RequestMapping(value = "user/helpRequests", method = RequestMethod.POST, consumes = {"multipart/form-data"})
     public void saveRequest(@RequestPart("request") HelpRequest request, 
             @RequestParam(name =  "files", required = false) MultipartFile[] files){
+
         helpRequestService.save(request, files);
     }
 
