@@ -29,7 +29,8 @@ public interface UserRepository extends PagingAndSortingRepository<User, Integer
     "(SELECT COUNT(x) from Item x WHERE x.user.id = p.id AND x.date > :timestamp) as items) " + 
     "from User p LEFT JOIN Payment u " + 
     "ON(p.id = u.user.id) "+ 
-    "WHERE u.date > :timestamp GROUP BY p.id ")
+    "WHERE u.date > :timestamp GROUP BY p.id " + 
+    "ORDER BY total DESC")
     public List<?> findUserByRank(@Param("timestamp") Timestamp timestamp);
 
 }

@@ -38,7 +38,16 @@ components.gifts = function(state){
                     </table>
                 </div>
             </div>
-
+            <div class = "bar colap">
+                <div class = "elem " style = "display : flex"> 
+                    <h5>
+                        ${state.status == "PENDING" ? '' : 
+                            state.status + " by " + state.markedByUser.name + " (" +
+                            state.markedByUser.contact.phoneNo + ") "
+                        }
+                    </h5>
+                </div>
+            </div>
             <div class = "bar colap">
                 <div class = "elem flex">
                     ${state.hideStateChanger? `` : /*html*/`

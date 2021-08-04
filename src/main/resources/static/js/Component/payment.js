@@ -39,11 +39,15 @@ components.payment = function(state){
             </div>
 
             <div class = "bar colap">
-                <div class = "elem colap">
-                    <a class = "link_to">
-                        View All Messages
-                    </a>
-                </div> 
+                <div class = "elem " style = "display : flex"> 
+                    <h5>
+                        ${state.status == "PENDING" ? '' : 
+                            (state.status == 'FINISHED' ? 'APPROVED' : state.status) 
+                            + " by " + state.markedByUser.name + " (" +
+                            state.markedByUser.contact.phoneNo + ") "
+                        }
+                    </h5>
+                </div>
             </div>
 
             <div class = "bar colap">
@@ -51,7 +55,7 @@ components.payment = function(state){
                     ${state.hideStateChanger? `` : /*html*/`
                         <h5>Choose Action</h5>
                         ${components.stateChanger({hit : "issue/status/" + state.id, 
-                        status : state.status})}
+                        status : state.status, opt : true})}
                     `}
                 </div>                
                 <div class = "elem flex">

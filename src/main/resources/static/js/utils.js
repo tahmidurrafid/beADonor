@@ -173,6 +173,7 @@ function getFileFormData(files, response){
 function submitForm(e, url, success, err){
     var form = $(e).closest("form");
     var response = dfs(form);
+    form.find(".loader").show();
 
     form.submit(function(e){
         return false;
@@ -182,9 +183,16 @@ function submitForm(e, url, success, err){
             console.log("success");
         }
     }
+    let sf = success;
+    success = function(){
+        form.find(".loader").hide(300);
+        sf();
+    }
+
     if(!err){
         err = function(data){
             console.log("error");
+            form.find(".loader").hide(300);
             if(data && data.responseJSON && data.responseJSON.message){
                 $(".error").html(data.responseJSON.message.replaceAll("|", "<br/>"));
                 $(".error").show();

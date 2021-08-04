@@ -2,7 +2,6 @@
     <div class = "tab">
         <a href = "../pending/1">Pending Review</a>
         <a href = "../marked/1">Marked</a>
-        <a href = "../ongoing/1">OnGoing</a>
         <a href = "../archived/1">Archived</a>
     </div>
 

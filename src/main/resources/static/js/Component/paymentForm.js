@@ -52,11 +52,13 @@ components.paymentForm = function(state){
                     <div class = "bar">
                         <div class = "elem error"></div>
                     </div>
-                    <div class = "bar colap">
-                        <div class = "elem"></div>
+                    <div class = "bar colap to-right">
+                        <div class = "elem">
+                            <div class = "loader" style = "display : none"></div>
+                        </div>
                         <div class = "elem ">
                             <input type = "submit" class = "ignore button solid white small" value = "submit" 
-                            onclick="submitForm(this, 'user/payment', ()=> {window.location.href = '/user/payments'})" />
+                            onclick="components.paymentForm.methods.submit(this, event)" />
                         </div>
                     </div>
                 </form>
@@ -64,5 +66,17 @@ components.paymentForm = function(state){
         </div>
     </div>
     `
+}
 
+components.paymentForm.methods = {
+    submit : function(me, event){
+        let form = $(me).closest("form");
+        form.find(".loader").show(300);
+        submitForm(me, 'user/payment', 
+            ()=> {
+                form.find(".loader").hide(300);                
+                window.location.href = '/user/payments'
+            }
+        );
+    }
 }

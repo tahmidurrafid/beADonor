@@ -74,7 +74,7 @@ function createPayments(state){
 
     ajaxGet("payments?" + serializeBody(data) , (res)=>{
         for(var i = 0; i < res.content.length; i++){
-            $(".topic-content .items").append( components.request( replaceNulls(res.content[i]) ) );
+            $(".topic-content .items").append( components.payment( replaceNulls(res.content[i]) ) );
         }
         console.log(parseInt(res.totalPages, 10))
         $(".topic-content").append( components.pagination({count : parseInt(res.totalPages, 10), 

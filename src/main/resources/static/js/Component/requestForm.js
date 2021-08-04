@@ -100,7 +100,7 @@ components.requestForm = function(state){
                     </div>
                     <div class = "bar colap to-right">
                         <div class = "elem">
-                            <div class = "loader" style = "display : none"></div>                        
+                            <div class = "loader" style = "display : none"></div>
                         </div>
                         <div class = "elem">
                             <input type = "submit" 

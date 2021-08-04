@@ -1,7 +1,9 @@
 package com.beadonor.beadonor.restcontroller;
 
 import java.util.List;
+import java.util.Map;
 
+import com.beadonor.beadonor.Utils.StaticResponse;
 import com.beadonor.beadonor.domain.Gift;
 import com.beadonor.beadonor.service.GiftService;
 
@@ -41,8 +43,9 @@ public class GiftRestController {
     }
 
     @PostMapping("gifts")
-    public void save(@RequestBody Gift gift){
+    public Map<String, Object> save(@RequestBody Gift gift){
         System.out.println("Ashche");
         giftService.saveGift(gift);
+        return StaticResponse.getSuccess();
     }
 }

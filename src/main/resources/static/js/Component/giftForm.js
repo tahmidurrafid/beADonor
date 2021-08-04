@@ -47,9 +47,15 @@ components.giftForm = function(state){
                         <input type = "text" name = "address" placeholder="Address"/>
                     </div>
                 </div>
+                <div class = "bar">
+                    <div class = "elem error">
+                    </div>
+                </div>
 
-                <div class = "bar colap">
-                    <div class = "elem"></div>
+                <div class = "bar colap to-right">
+                    <div class = "elem">
+                        <div class = "loader" style = "display : none"></div>
+                    </div>
                     <div class = "elem">
                         <button type = "submit" class = "button solid white small" 
                             onClick = "components.giftForm.methods.submit(this, event)">
@@ -67,8 +73,18 @@ components.giftForm.methods = {
     submit : function(selector, e){
         e.preventDefault();
         var data = parseForm($(selector).closest("form"));
+        let form = $(selector).closest("form");
+        form.find(".loader").show(300);
         ajaxPost('gifts', data, (res) => {
+            form.find(".loader").hide(300);
             console.log(res);
+            window.location.href = "/user/gifts";
+        }, (err) => {
+            if(err.responseJSON && err.responseJSON && err.responseJSON.message){
+                form.find(".error").html(err.responseJSON.message.replaceAll("|", "<br/>"));
+                form.find(".error").show();
+                form.find(".loader").hide(300);                
+            }
         })
     }
 }
