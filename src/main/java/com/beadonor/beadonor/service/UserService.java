@@ -95,7 +95,7 @@ public class UserService {
     public User saveProfilePhoto(MultipartFile file){
         User user = getLoggedinUser();
         user.setDpLocation("/attachments/dp/" + user.getId() + ".jpg");
-        save(user);
+        userRepository.save(user);
         String filePath = request.getServletContext().getRealPath(user.getDpLocation());         
         try{
             file.transferTo(new File(filePath));

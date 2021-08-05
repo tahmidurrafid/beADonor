@@ -2,7 +2,6 @@ components.requestForm = function(state){
     // localhost:8080/api/v1/categories/helpRequest
     console.log(state);
     return /*html*/ `
-    <div class = "items">
         <div class = "item dpView expanded">
             <div class = "dp">
                 <img src = "${me.dpLocation}" />
@@ -112,7 +111,6 @@ components.requestForm = function(state){
 
             </div>
         </div>
-    </div>
     `
 }
 

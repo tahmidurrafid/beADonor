@@ -5,7 +5,9 @@
     </div>
     <div class = "topic-content items">
         <div class = "items">
-            
+            <div class = "loader-big">
+                <div class = "spinner"></div>
+            </div>
         </div>
     </div>
 </div>

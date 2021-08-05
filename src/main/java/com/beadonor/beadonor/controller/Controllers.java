@@ -41,6 +41,11 @@ public class Controllers {
         return "donors";
     }
 
+    @GetMapping("about")
+    public String about(){
+        return "about";
+    }
+
     @GetMapping("bloodDonate")
     public String bloodDonate(){
         return "bloodDonate";

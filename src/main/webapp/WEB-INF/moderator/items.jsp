@@ -8,7 +8,9 @@
 
     <div class = "topic-content">
         <div class = "items">
-
+            <div class = "loader-big">
+                <div class = "spinner"></div>
+            </div>
         </div>
 
     </div>

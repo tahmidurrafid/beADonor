@@ -1,6 +1,5 @@
 components.infoForm = function(state){
     return /*html*/ `
-    <div class = "items">
         <div class = "item dpView expanded">
             <div class = "dp">
                 <img src = "${me.dpLocation}" />
@@ -76,6 +75,5 @@ components.infoForm = function(state){
                 </form>
             </div>
         </div>
-    </div>
     `;
 }

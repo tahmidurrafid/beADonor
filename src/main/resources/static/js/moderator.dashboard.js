@@ -5,6 +5,7 @@ importJs('/js/Component/items.js')
 importJs('/js/Component/info.js')
 importJs('/js/Component/gifts.js')
 importJs('/js/Component/stateChanger.js')
+importJs('/js/Component/profile.js')
 
 /* 
     components:
@@ -28,6 +29,8 @@ class DashboardFactory{
             createInfo(state);
         }else if(dashboard == "gifts"){
             createGifts(state);
+        }else if(dashboard == "profile"){
+            createProfile(state);
         }
 
         $("#dashboard").find(".content .tab>a").each(function(index){
@@ -56,6 +59,7 @@ function createRequests(state){
 
     console.log("helpRequests?" + serializeBody(data));
     ajaxGet("helpRequests?" + serializeBody(data) , (res)=>{
+        $(".topic-content .items .loader-big").hide();
         for(var i = 0; i < res.content.length; i++){
             $(".topic-content .items").append( components.request( replaceNulls(res.content[i]) ) );
         }
@@ -73,6 +77,7 @@ function createPayments(state){
     }
 
     ajaxGet("payments?" + serializeBody(data) , (res)=>{
+        $(".topic-content .items .loader-big").hide();
         for(var i = 0; i < res.content.length; i++){
             $(".topic-content .items").append( components.payment( replaceNulls(res.content[i]) ) );
         }
@@ -90,6 +95,7 @@ function createItems(state){
     }
 
     ajaxGet("items?" + serializeBody(data) , (res)=>{
+        $(".topic-content .items .loader-big").hide();
         for(var i = 0; i < res.content.length; i++){
             $(".topic-content .items").append( components.request( replaceNulls(res.content[i]) ) );
         }
@@ -108,6 +114,7 @@ function createInfo(state){
     }
 
     ajaxGet("info?" + serializeBody(data) , (res)=>{
+        $(".topic-content .items .loader-big").hide();
         for(var i = 0; i < res.content.length; i++){
             $(".topic-content .items").append( components.request( replaceNulls(res.content[i]) ) );
         }
@@ -127,6 +134,7 @@ function createGifts(state){
     }
 
     ajaxGet("gifts?" + serializeBody(data) , (res)=>{
+        $(".topic-content .items .loader-big").hide();
         for(var i = 0; i < res.content.length; i++){
             $(".topic-content .items").append( components.gifts( replaceNulls(res.content[i]) ) );
         }
@@ -134,4 +142,14 @@ function createGifts(state){
                 current : parseInt(state.page, 10) }) );
     })
 
+}
+
+async function createProfile(){
+    ajaxGet('auth/me', (res) => {
+        $(".topic-content .items .loader-big").hide();
+        var profile = components.profile;
+        var val = $(".topic-content .items").append( profile(res) )[0];
+        // console.log('contatc' , res.contact.area)
+        profile.methods.bindAll($(val), res);
+    });
 }

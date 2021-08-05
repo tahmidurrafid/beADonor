@@ -14,6 +14,7 @@
                     pageSize : 10
                 }
                 ajaxGet("campaign?" + serializeBody(data), (res) => {
+                    $(".root-container .items .loader-big").hide();
                     console.log(res);
                     for(var i = 0; i < res.content.length; i++){
                         $(".campaigns .items").append( components.campaignPreview( replaceNulls(res.content[i]) ) );
@@ -31,7 +32,9 @@
         <div class = "root-container campaigns">
             <div class = "topic-title"><span>Please Help</span></div>
             <div class = "items">
-
+                <div class = "loader-big">
+                    <div class = "spinner"></div>
+                </div>
             </div>
         </div>
     </body>

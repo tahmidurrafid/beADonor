@@ -14,6 +14,7 @@
                     pageSize : 10
                 }
                 ajaxGet("gallery?" + serializeBody(data), (res) => {
+                    $(".root-container .items .loader-big").hide();                    
                     console.log(res);
                     for(var i = 0; i < res.content.length; i++){
                         $(".gallery .items").append( components.galleryView( replaceNulls(res.content[i]) ) );
@@ -32,7 +33,9 @@
 
             <div class = "topic-title"><span>Our Gallery</span></div>
             <div class = "items">
-
+                <div class = "loader-big">
+                    <div class = "spinner"></div>
+                </div>
             </div>
         </div>
     </body>

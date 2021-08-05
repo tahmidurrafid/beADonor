@@ -20,7 +20,7 @@
                     <a href = "/campaign/1"><span>Donations</span></a>
                     <a href = "/user/requests/create/1"><span>Need Help?</span></a>
                     <a href = "/gallery/1/"><span>Gallery</span></a>
-                    <a href = "#"><span>About Us</span></a>
+                    <a href = "/about"><span>About Us</span></a>
                     <a href = "/donors"><span>Donors</span></a>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                         <div class = "link" ><a href = "/gallery/1">Gallery</a></div>
                         <div class = "link" ><a href = "/donors">Top Donors</a></div>
                         <div class = "link" ><a href = "/user/requests/create/1">Need Help?</a></div>
-                        <div class = "link" ><a href = "#">About Us</a></div>
+                        <div class = "link" ><a href = "/about">About Us</a></div>
                     </div>
                 </div>
                 <div class = "item right">

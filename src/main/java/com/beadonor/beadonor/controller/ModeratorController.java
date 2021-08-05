@@ -47,33 +47,11 @@ public class ModeratorController {
         return new RedirectView(state + "/1");
     }
 
-    // @GetMapping("/payments/{state}/{page}")
-    // public String payments(ModelMap model){
-    //     model.put("link", "payments");
-    //     return DASHBOARD;
-    // }
-
-    // @GetMapping("/items")
-    // public String items(ModelMap model){
-    //     model.put("link", "items");
-    //     return DASHBOARD;
-    // }
-
-    // @GetMapping("/info")
-    // public String info(ModelMap model){
-    //     model.put("link", "info");
-    //     return DASHBOARD;
-    // }
-
-    // @GetMapping("/gifts")
-    // public String gifts(ModelMap model){
-    //     model.put("link", "gifts");
-    //     return DASHBOARD;
-    // }
-
-    // @GetMapping("/form")
-    // public String form(ModelMap model){
-    //     model.put("link", "form");
-    //     return DASHBOARD;
-    // }
+    @GetMapping("/profile")
+    public String profile(ModelMap model){
+        model.put("link", "profile");
+        model.put("state", "profile");
+        model.put("page", "profile");
+        return DASHBOARD;
+    }
 }

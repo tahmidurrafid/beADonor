@@ -27,7 +27,7 @@ $(document).ready(function(){
         }
     });
 
-    $("nav").on("click", ".settings", ()=>{
+    $("nav").on("click", ".settings", (e)=>{
         $(this).find(".dropdown").toggleClass("hide-It");
     })
 

@@ -64,6 +64,7 @@ function createRequests(state){
     if( state.state.toUpperCase() == "ALL"){
         console.log("user/helpRequests?" + serializeBody(data));
         ajaxGet("user/helpRequests?" + serializeBody(data) , (res)=>{
+            $(".topic-content .items .loader-big").hide();
             for(var i = 0; i < res.content.length; i++){
                 res.content[i].hideStateChanger = true;                
                 $(".topic-content .items").append( components.request( replaceNulls(res.content[i]) ) );
@@ -78,9 +79,10 @@ function createRequests(state){
                 categories : res
             };
             ajaxGet("static/bloodGroups", (blood)=>{
+                $(".topic-content .items .loader-big").hide();
                 console.log(blood, "blood");
                 formState.groups = blood;
-                $(".topic-content").append( components.requestForm( formState ) );
+                $(".topic-content .items").append( components.requestForm( formState ) );
                 bindContactForms($(".topic-content"));                
             })
         });
@@ -97,6 +99,7 @@ function createPayments(state){
 
     if( state.state.toUpperCase() == "ALL"){
         ajaxGet("user/payments?" + serializeBody(data) , (res)=>{
+            $(".topic-content .items .loader-big").hide();
             for(var i = 0; i < res.content.length; i++){
                 res.content[i].hideStateChanger = true;
                 $(".topic-content .items").append( components.payment( replaceNulls(res.content[i]) ) );
@@ -110,8 +113,9 @@ function createPayments(state){
                 categories : res
             };
             ajaxGet("categories/paymentMethod", (methods) => {
+                $(".topic-content .items .loader-big").hide();
                 formState.methods = methods;
-                $(".topic-content").append( components.paymentForm( formState ) );                
+                $(".topic-content .items").append( components.paymentForm( formState ) );                
             })
         });
     }
@@ -128,6 +132,7 @@ function createItems(state){
     }
     if( state.state.toUpperCase() == "ALL"){
         ajaxGet("user/items/" , (res)=>{
+            $(".topic-content .items .loader-big").hide();
             console.log(res);
             for(var i = 0; i < res.content.length; i++){
                 res.content[i].hideStateChanger = true;
@@ -138,10 +143,11 @@ function createItems(state){
         })
     }else if( state.state.toUpperCase() == "CREATE"){
         ajaxGet("categories/item", (res)=>{
+            $(".topic-content .items .loader-big").hide();
             let formState = {
                 categories : res
             };
-            $(".topic-content").append( components.itemForm( formState ) );
+            $(".topic-content .items").append( components.itemForm( formState ) );
             bindContactForms($(".topic-content"));            
         });
     }
@@ -157,6 +163,7 @@ function createInfo(state){
     }
     if( state.state.toUpperCase() == "ALL"){
         ajaxGet("user/info" , (res)=>{
+            $(".topic-content .items .loader-big").hide();
             console.log(res);
             for(var i = 0; i < res.content.length; i++){
                 res.content[i].hideStateChanger = true;
@@ -167,10 +174,11 @@ function createInfo(state){
         })
     }else if( state.state.toUpperCase() == "CREATE"){
         ajaxGet("categories/info", (res)=>{
+            $(".topic-content .items .loader-big").hide();
             let formState = {
                 categories : res
             };
-            $(".topic-content").append( components.infoForm( formState ) );
+            $(".topic-content .items").append( components.infoForm( formState ) );
             bindContactForms($(".topic-content"));            
         });
     }
@@ -186,6 +194,7 @@ function createGifts(state){
     }
     if( state.state.toUpperCase() == "ALL"){
         ajaxGet("user/gifts" , (res)=>{
+            $(".topic-content .items .loader-big").hide();
             console.log(res);
             for(var i = 0; i < res.content.length; i++){
                 res.content[i].hideStateChanger = true;
@@ -197,6 +206,7 @@ function createGifts(state){
     }else if( state.state.toUpperCase() == "CREATE"){
         ajaxGet("auth/me", (me)=> {
             ajaxGet("categories/gift", (res)=>{
+                $(".topic-content .items .loader-big").hide();
                 let formState = {
                     categories : res,
                     me : me
@@ -212,6 +222,7 @@ function createGifts(state){
 
 async function createProfile(){
     ajaxGet('auth/me', (res) => {
+        $(".topic-content .items .loader-big").hide();
         var profile = components.profile;
         var val = $(".topic-content .items").append( profile(res) )[0];
         // console.log('contatc' , res.contact.area)
