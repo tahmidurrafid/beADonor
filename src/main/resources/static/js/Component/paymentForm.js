@@ -1,5 +1,16 @@
 components.paymentForm = function(state){
+    state.refId = getParameterByName("ref", window.location.search);
     console.log(state);
+
+    function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
     return /*html*/ `
         <div class = "item dpView expanded">
             <div class = "dp">
@@ -18,8 +29,10 @@ components.paymentForm = function(state){
                                 }
                             </select>
                         </div>
-                        <div class = "elem half group" data-group = "refIssue">
-                            <input disabled type = "text" name = "id" placeholder="Request Id" />
+                        <div class = "elem half group ${state.refId == null ? 'ignore' : ''}" 
+                        data-group = "refIssue">
+                            <input disabled type = "text" name = "id" 
+                            value = "${state.refId ? state.refId : ''}" placeholder="Request Id" />
                         </div>
                     </div>
 
@@ -70,6 +83,7 @@ components.paymentForm.methods = {
     submit : function(me, event){
         let form = $(me).closest("form");
         form.find(".loader").show(300);
+        console.log(parseForm(form), "form");
         submitForm(me, 'user/payment', 
             ()=> {
                 form.find(".loader").hide(300);                

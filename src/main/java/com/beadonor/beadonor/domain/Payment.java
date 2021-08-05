@@ -4,6 +4,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Payment extends Issue{
@@ -20,7 +21,7 @@ public class Payment extends Issue{
     @JoinColumn(name = "category_id")
     private DonationCategory category;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "ref_issue_id")
     private Issue refIssue;
 

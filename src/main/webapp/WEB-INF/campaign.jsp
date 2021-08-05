@@ -17,7 +17,8 @@
                     $(".root-container .items .loader-big").hide();
                     console.log(res);
                     for(var i = 0; i < res.content.length; i++){
-                        $(".campaigns .items").append( components.campaignPreview( replaceNulls(res.content[i]) ) );
+                        res.content[i].request.paid = res.content[i].paid; 
+                        $(".campaigns .items").append( components.campaignPreview( replaceNulls(res.content[i].request) ) );
                     }
                     console.log(parseInt(res.totalPages, 10))
                     $(".campaigns").append( components.pagination({count : parseInt(res.totalPages, 10), 

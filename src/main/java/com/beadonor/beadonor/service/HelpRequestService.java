@@ -2,12 +2,14 @@ package com.beadonor.beadonor.service;
 
 import java.util.List;
 
+import com.beadonor.beadonor.Utils.Paging;
 import com.beadonor.beadonor.domain.HelpRequest;
 import com.beadonor.beadonor.repository.HelpRequestRepository;
 import com.beadonor.beadonor.repository.IssueAbstractRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,8 +28,10 @@ public class HelpRequestService extends IssueService< HelpRequest > {
         return helpRequestRepository;
     }
 
-    public Page<HelpRequest> getCampaign(Integer pageNo, Integer pageSize){
-        return findByFilteringAndPaging("CAMPAIGN", pageNo, pageSize);
+    public Page<?> getCampaign(Integer pageNo, Integer pageSize){
+        Pageable pageable = Paging.getPageable(pageNo, pageSize );
+        return helpRequestRepository.findCampaign(pageable);
+        // return findByFilteringAndPaging("CAMPAIGN", pageNo, pageSize);
     }
 
     @Override
@@ -36,5 +40,9 @@ public class HelpRequestService extends IssueService< HelpRequest > {
             request.setAmount(0.0);
         }
         super.save(request, files);
+    }
+
+    public HelpRequest findForCampaign(Integer id){
+        return helpRequestRepository.findHelpRequestById(id);
     }
 }

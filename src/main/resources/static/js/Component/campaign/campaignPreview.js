@@ -1,4 +1,18 @@
 components.campaignPreview = function(state){    
+    if(!state.paid || state.paid == "" ){
+        state.paid = 0;
+    }
+
+    state.percent = state.paid/state.amount;
+
+    if( isNaN(state.percent) ){
+        state.percent = 0;
+    }
+    state.percent = state.percent*100;
+    state.percent = parseInt(state.percent, 10);
+    state.description = state.description.substring(0, 80);
+
+    console.log(state)
     return /*html*/`
     <div class = "item">
         <div class = "item-wrapper">
@@ -10,11 +24,11 @@ components.campaignPreview = function(state){
                 <div class = "bar-line">
                     <div class = "bar">
                         <div class = "full">
-                            <div class = "fraction"></div>
+                            <div class = "fraction" style = "width : ${state.percent}%"></div>
                         </div>
                     </div>
                     <div class = "percentage">
-                        40%
+                        ${state.percent}%
                     </div>
                 </div>
                 <div class = "target">
@@ -23,12 +37,12 @@ components.campaignPreview = function(state){
             </div>
             <div class = "buttons">
                 <div class = "left">
-                    <a>
+                    <a href = "/campaign/help/${state.id}">
                         Donate
                     </a>
                 </div>
                 <div class = "right">
-                    <a>
+                    <a href = "#">
                         More Details
                     </a>
                 </div>
@@ -36,8 +50,9 @@ components.campaignPreview = function(state){
 
         </div>
     </div>
-    `    
+    `
 }
+
 components.campaignPreview.methods = {
 
 }

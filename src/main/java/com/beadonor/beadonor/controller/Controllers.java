@@ -51,10 +51,10 @@ public class Controllers {
         return "bloodDonate";
     }
 
-    @GetMapping("campaign/help")
-    public String campaignHelp(){
+    @GetMapping("campaign/help/{id}")
+    public String campaignHelp(ModelMap model ,@PathVariable("id") Integer id){
+        model.put("id", id);
         return "campaignHelp";
     }
-
 
 }

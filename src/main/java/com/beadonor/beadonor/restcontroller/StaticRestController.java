@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.beadonor.beadonor.domain.BloodGroup;
+import com.beadonor.beadonor.domain.HelpRequest;
 import com.beadonor.beadonor.service.BloodGroupService;
 import com.beadonor.beadonor.service.UserService;
 
@@ -28,4 +29,5 @@ public class StaticRestController {
     public List<?> findUserByRank(){
         return userService.findUserByRank();
     }
+
 }
