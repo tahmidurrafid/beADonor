@@ -31,7 +31,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
                 "/api/v1/static/**",
                 "/api/v1/location/**",
                 "/api/v1/users/**",
-                "/api/v1/auth/**").permitAll()
+                "/api/v1/auth/**" ,
+                "/campaign/**", "/api/v1/campaign/**",
+                "/gallery/**", "/api/v1/gallery/**", 
+                "/about/**", "/donors/**").permitAll()
+            .antMatchers("/api/v1/issue/**", "/moderator/**").hasAuthority("MODERATOR")
+            .antMatchers("/admin/**", "/api/v1/admin/**").hasAuthority("ADMIN")
             .anyRequest().authenticated()
             .and().formLogin().loginPage("/auth/login")
             .defaultSuccessUrl("/")
