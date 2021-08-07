@@ -19,7 +19,7 @@
                     <a class = "selected" href = "/"><span>Home</span></a>
                     <a href = "/campaign/1"><span>Donations</span></a>
                     <a href = "/user/requests/create/1"><span>Need Help?</span></a>
-                    <a href = "/gallery/1/"><span>Gallery</span></a>
+                    <a href = "/gallery/1"><span>Gallery</span></a>
                     <a href = "/about"><span>About Us</span></a>
                     <a href = "/donors"><span>Donors</span></a>
                 </div>

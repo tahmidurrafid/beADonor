@@ -42,10 +42,10 @@
                             <span class = "icon"><img src = "/images/baricons/fi-rr-diploma.svg"/></span>
                             <span>Review Info</span>
                         </a>
-                        <a href = "statistics">
+                        <!-- <a href = "statistics">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-stats.svg"/></span>
                             <span>Statistics</span>
-                        </a>
+                        </a> -->
                         <a href = "/moderator/gifts">
                             <span class = "icon"><img src = "/images/baricons/048-success.svg"/></span>
                             <span>Send Gifts</span>

@@ -28,7 +28,7 @@ components.profile = function(state){
                         <input type = "password" name = "password" value = "" placeholder="Your password"/>
                     </div>
                     <div class = "elem">
-                        <input type = "text" name = "name" value = "${state.name}" placeholder="Full Name"/>
+                        <input type = "text" name = "name" value = "${state.name ? state.name : ''}" placeholder="Full Name"/>
                     </div>
                     <div class = "line">
                         <div class = "elem half">

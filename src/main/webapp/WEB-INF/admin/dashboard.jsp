@@ -34,10 +34,10 @@
                             <span class = "icon"><img src = "/images/baricons/009-trust.svg"/></span>
                             <span>Manage Gallery</span>
                         </a>
-                        <a href = "/user/items">
+                        <!-- <a href = "/user/items">
                             <span class = "icon"><img src = "/images/baricons/fi-rr-shopping-cart-check.svg"/></span>
                             <span>Statistics</span>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
 
