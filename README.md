@@ -33,7 +33,7 @@ Our primary goal is to build a platform where donors can help the needy ones. Us
 | Update Gallery | Admin, moderator
 
 <br/><br/>
-<img src="https://raw.githubusercontent.com/tahmidurrafid/beADonor/master/Project%20IDeas/beadonor.gif" width="700">
+<img src="https://raw.githubusercontent.com/tahmidurrafid/beADonor/master/Project%20IDeas/beadonor.gif" width="600">
 
 ## Technology
 
